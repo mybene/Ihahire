@@ -6,34 +6,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private  Button mBuying;
     private Button  mSelling;
 
-    public MainActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBuying=(Button).findById(R.id.buying);
+        mBuying=(Button)findViewById(R.id.buying);
         mBuying.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View b){
+
+                    Toast.makeText(MainActivity.this,"Buy!",Toast.LENGTH_LONG).show();
+
                 Intent intent= new Intent(MainActivity.this,Buy.class);
                 startActivity(intent);
             }
         });
-        mSelling=(Button).findById(R.id.selling);
+
+        mSelling=(Button)findViewById(R.id.selling);
         mSelling.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View s) {
-                Intent intent= new Intent(MainActivity.this,sell.class);
+                Toast.makeText((MainActivity.this,"sell",Toast.LENGTH_LONG).show();
+                Intent intent= new Intent(MainActivity.this,Sell.class);
                 startActivity(intent);
             }
         });
     }
+
+
 }
