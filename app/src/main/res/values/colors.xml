@@ -6,6 +6,6 @@
     <color name="colorWhite">#fff</color>
     <color name="colorPurple">#f1f</color>
     <color name="colorGrey">#BBB</color>
-    <color name="colorTransparent">#</color>
+    <color name="colorTransparent">#ffffff</color>
 
 </resources>

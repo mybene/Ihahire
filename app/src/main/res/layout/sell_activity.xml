@@ -34,7 +34,8 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="250dp"
         android:textColor="@color/colorPrimaryDark"
-        android:background="@color/colorWhite"/>
+        android:background="@color/colorWhite"
+        android:alpha="0.7"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -45,7 +46,8 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="290dp"
         android:textColor="@color/colorPrimaryDark"
-        android:background="@color/colorWhite"/>
+        android:background="@color/colorWhite"
+        android:alpha="0.7"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -56,7 +58,8 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="320dp"
         android:textColor="@color/colorPrimaryDark"
-        android:background="@color/colorWhite"/>
+        android:background="@color/colorWhite"
+        android:alpha="0.7"/>
 
 
 
