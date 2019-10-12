@@ -14,12 +14,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome on Isange  market"
-        android:padding="20px"
+        android:padding="10sp"
+        android:textSize="30sp"
         android:layout_margin="80dp"
-        android:background="@color/colorWhite"
+        android:textColor="@color/colorWhite"
+        android:textStyle="italic"
+        android:textFontWeight="20sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose between buy and sell"
+        android:padding="20px"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="100dp"
+        android:background="@color/colorPrimaryDark"
         android:textStyle="bold"
         android:fontFamily="serif-monospace"/>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,7 +40,8 @@
         android:text="BUY"
         android:padding="20sp"
         android:layout_alignParentBottom="true"
-        android:layout_margin="100dp"/>
+        android:layout_marginBottom="100dp"
+        android:layout_marginLeft="100dp"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
