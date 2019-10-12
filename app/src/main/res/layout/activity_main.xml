@@ -20,7 +20,7 @@
         android:textStyle="bold"
         android:fontFamily="serif-monospace"/>
 
-    <EditText
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buying"
@@ -30,7 +30,7 @@
         android:padding="20sp"
         android:layout_alignParentBottom="true"
         android:layout_margin="100dp"/>
-    <EditText
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/selling"
