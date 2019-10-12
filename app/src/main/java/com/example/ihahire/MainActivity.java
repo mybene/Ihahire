@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         mBuying.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View b){
-
+                //Toast to show the user that  buying  choice is loading
                     Toast.makeText(MainActivity.this,"Buy!",Toast.LENGTH_LONG).show();
 
                 Intent intent= new Intent(MainActivity.this,Buy.class);
@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         mSelling.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View s) {
-                Toast.makeText((MainActivity.this,"sell",Toast.LENGTH_LONG).show();
+                //Toast to show the user that  selling  choice is loading
+                Toast.makeText(MainActivity.this,"sell",Toast.LENGTH_LONG).show();
                 Intent intent= new Intent(MainActivity.this,Sell.class);
                 startActivity(intent);
             }
