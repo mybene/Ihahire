@@ -13,11 +13,23 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome on mordern market"
-
+        android:text="Welcome on Isange  market"
+        android:padding="20px"
         android:layout_margin="80dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorWhite"
         android:textStyle="bold"
-        android:fontFamily="casual"
+        android:fontFamily="serif-monospace"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buying"
+        android:background="@color/colorPurple"
+        android:textColor="@color/colorPrimary"
+        android:text="BUY"
+        android:padding="20sp"
+        android:layout_margin="100dp"/>
+
+
 
 </RelativeLayout>
