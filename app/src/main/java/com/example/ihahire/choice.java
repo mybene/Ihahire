@@ -36,7 +36,7 @@ public class choice extends AppCompatActivity {
         mSell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1=new Intent(choice.this,Sell.class);
+                Intent intent1=new Intent(choice.this,sell.class);
                 startActivity(intent1);
             }
         });
