@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private  Button mBuying;
-    private Button  mSelling;
+    private  Button mVasy;
+
 
 
     @Override
@@ -18,28 +18,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBuying=(Button)findViewById(R.id.buying);
-        mBuying.setOnClickListener(new View.OnClickListener(){
+        mVasy=(Button)findViewById(R.id.vasy);
+        mVasy.setOnClickListener(new View.OnClickListener(){
             @Override
-            public  void onClick(View v){
+            public  void onClick(View v) {
                 //Toast to show the user that  buying  choice is loading
-                    Toast.makeText(MainActivity.this,"Buy!",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Welcome!!!", Toast.LENGTH_LONG).show();
 
-                Intent intent= new Intent(MainActivity.this,Buy.class);
+                Intent intent= new Intent(MainActivity.this,choice.class);
                 startActivity(intent);
             }
+
+
         });
 
-//        mSelling=(Button)findViewById(R.id.selling);
-//        mSelling.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View s) {
-//                //Toast to show the user that  selling  choice is loading
-//                Toast.makeText(MainActivity.this,"sell",Toast.LENGTH_LONG).show();
-//                Intent intent= new Intent(MainActivity.this,Sell.class);
-//                startActivity(intent);
-//            }
-//        });
     }
 
 

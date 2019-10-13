@@ -20,20 +20,11 @@
         android:textColor="@color/colorWhite"
         android:textStyle="italic" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose between buy and sell"
-        android:padding="20px"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="100dp"
-        android:background="@color/colorPrimaryDark"
-        android:textStyle="bold"
-        android:fontFamily="serif-monospace"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buying"
+        android:id="@+id/vasy"
         android:background="@color/colorPurple"
         android:textColor="@color/colorPrimary"
         android:text="Let's Go"

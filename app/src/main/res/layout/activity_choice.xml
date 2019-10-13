@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".choice">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose between buy and sell"
+        android:padding="20px"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="100dp"
+        android:background="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"/>
+
+
+    <ImageView
+        android:id="@+id/buy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="100dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/buying" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BUY"
+        android:textColor="@color/colorPurple"
+        android:textStyle="italic"
+        android:layout_marginLeft="@+id/buy"
+        android:layout_marginRight="@+id/buy"
+        android:layout_margin="180dp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"/>
+
+
+    <ImageView
+        android:id="@+id/sell"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/selling2" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELL"
+        android:textColor="@color/colorPurple"
+        android:textStyle="italic"
+        android:layout_marginLeft="@+id/sell"
+        android:layout_marginRight="@+id/sell"
+        android:layout_margin="250dp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"/>
+
+
+
+</RelativeLayout>
