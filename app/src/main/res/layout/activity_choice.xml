@@ -17,7 +17,7 @@
 
 
     <ImageView
-        android:id="@+id/buy"
+        android:id="@+id/img1"
         android:layout_width="115dp"
         android:layout_height="147dp"
         android:layout_alignParentBottom="true"
@@ -30,20 +30,20 @@
         android:src="@drawable/buying" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="26dp"
         android:layout_marginTop="210dp"
-        android:layout_toRightOf="@+id/buy"
+        android:layout_toRightOf="@+id/img1"
         android:text="BUY"
         android:textColor="@color/colorPurple"
         android:textSize="30dp"
         tools:ignore="UnknownId" />
 
     <ImageView
-        android:id="@+id/sell"
+        android:id="@+id/img2"
         android:layout_width="115dp"
         android:layout_height="147dp"
         android:layout_alignParentBottom="true"
@@ -56,12 +56,12 @@
         android:src="@drawable/selling2" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/sell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="26dp"
-        android:layout_toRightOf="@+id/sell"
+        android:layout_toRightOf="@+id/img2"
         android:layout_marginTop="400dp"
         android:text="SELL"
         android:textColor="@color/colorPurple"
