@@ -8,10 +8,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+
 public class choice extends AppCompatActivity {
 
-    private Button mBuy;
-    private Button mSell;
+    @BindView(R.id.buy) Button mBuy;
+    @BindView(R.id.sell) Button mSell;
+//     private Button mBuy;
+//     private Button mSell;
+
 
 
     @Override
@@ -19,10 +26,11 @@ public class choice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
 
-        mBuy=(Button)findViewById(R.id.buy);
+      ButterKnife.bind(this);
+//       mBuy=(Button)findViewById(R.id.buy);
+//       mSell=(Button)findViewById(R.id.sell);
 
-
-     mBuy.setOnClickListener(new View.OnClickListener() {
+        mBuy.setOnClickListener(new View.OnClickListener() {
 
            @Override
            public void onClick(View v) {
@@ -32,7 +40,6 @@ public class choice extends AppCompatActivity {
            }
        });
 
-        mSell=(Button)findViewById(R.id.sell);
         mSell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

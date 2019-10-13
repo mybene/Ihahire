@@ -6,7 +6,6 @@
     <color name="colorWhite">#fff</color>
     <color name="colorPurple">#f1f</color>
     <color name="colorGrey">#BBB</color>
-
-
+    <color name="colorPrimaryLight">#FFCCBC</color>
 
 </resources>

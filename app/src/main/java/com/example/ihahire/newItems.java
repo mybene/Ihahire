@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class newItems extends AppCompatActivity {
     private TextView mArticles;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

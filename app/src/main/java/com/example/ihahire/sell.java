@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+
+
 public class sell extends AppCompatActivity {
     private EditText mName;
     private Button mSelling;
@@ -17,8 +19,8 @@ public class sell extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell);
 
-        mName=(EditText)findViewById(R.id.name);
-        mSelling=(Button)findViewById(R.id.selling);
+      mName=(EditText)findViewById(R.id.name);
+      mSelling=(Button)findViewById(R.id.selling);
 
         mSelling.setOnClickListener(new View.OnClickListener() {
             @Override
