@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.Toast;
 
 
 public class sell extends AppCompatActivity {
@@ -27,6 +27,7 @@ public class sell extends AppCompatActivity {
             public void onClick(View v) {
                 String name=mName.getText().toString();
 //                log.d(TAG,name);
+                Toast.makeText(sell.this, "Your product is received!!!", Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(sell.this,newItems.class);
                 intent.putExtra("name",name);
                 startActivity(intent);

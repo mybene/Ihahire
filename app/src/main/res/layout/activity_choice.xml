@@ -26,7 +26,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="2dp"
-        android:layout_marginBottom="415dp"
+        android:layout_marginBottom="293dp"
         android:src="@drawable/buying" />
 
     <Button
@@ -34,8 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginLeft="26dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginLeft="117dp"
+        android:layout_marginTop="250dp"
         android:layout_toRightOf="@+id/img1"
         android:text="BUY"
         android:textColor="@color/colorPurple"
@@ -52,7 +52,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginEnd="30dp"
         android:layout_marginRight="2dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginBottom="51dp"
         android:src="@drawable/selling2" />
 
     <Button
@@ -60,9 +60,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="26dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="420dp"
         android:layout_toRightOf="@+id/img2"
-        android:layout_marginTop="400dp"
         android:text="SELL"
         android:textColor="@color/colorPurple"
         android:textSize="30dp"
