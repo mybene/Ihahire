@@ -36,22 +36,23 @@
         android:id="@+id/buying"
         android:background="@color/colorPurple"
         android:textColor="@color/colorPrimary"
-        android:text="BUY"
+        android:text="Let's Go"
         android:padding="20sp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="100dp"
-        android:layout_marginLeft="100dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/selling"
-        android:background="@color/colorGrey"
-        android:textAlignment="center"
-        android:text="SELL"
-        android:padding="20sp"
-        android:layout_marginRight="80dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/selling"-->
+<!--        android:background="@color/colorGrey"-->
+<!--        android:textAlignment="center"-->
+<!--        android:text="SELL"-->
+<!--        android:padding="20sp"-->
+<!--        android:layout_marginRight="80dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginBottom="100dp"/>-->
 
 
 

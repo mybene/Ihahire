@@ -17,5 +17,16 @@
     android:layout_marginTop="250dp"
     android:layout_centerHorizontal="true"/>
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/productList"
+        android:layout_below="@+id/buyList"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorGrey"/>
+
+
+
 
 </RelativeLayout>

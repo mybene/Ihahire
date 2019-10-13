@@ -29,7 +29,7 @@ public class Sell extends AppCompatActivity {
             @Override
             public void onClick(View s) {
                 String name= mName.getText().toString();
-                Intent intent= new Intent(Sell.this,Buy.class);
+                Intent intent= new Intent(Sell .this,Buy.class);
                 intent.putExtra("name",name);
 
 //                String price=mPrice.getText().toString();

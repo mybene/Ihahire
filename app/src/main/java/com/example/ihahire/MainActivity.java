@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         mBuying=(Button)findViewById(R.id.buying);
         mBuying.setOnClickListener(new View.OnClickListener(){
             @Override
-            public  void onClick(View b){
+            public  void onClick(View v){
                 //Toast to show the user that  buying  choice is loading
                     Toast.makeText(MainActivity.this,"Buy!",Toast.LENGTH_LONG).show();
 
@@ -30,16 +30,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mSelling=(Button)findViewById(R.id.selling);
-        mSelling.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View s) {
-                //Toast to show the user that  selling  choice is loading
-                Toast.makeText(MainActivity.this,"sell",Toast.LENGTH_LONG).show();
-                Intent intent= new Intent(MainActivity.this,Sell.class);
-                startActivity(intent);
-            }
-        });
+//        mSelling=(Button)findViewById(R.id.selling);
+//        mSelling.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View s) {
+//                //Toast to show the user that  selling  choice is loading
+//                Toast.makeText(MainActivity.this,"sell",Toast.LENGTH_LONG).show();
+//                Intent intent= new Intent(MainActivity.this,Sell.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
 
