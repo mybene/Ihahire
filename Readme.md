@@ -1,33 +1,33 @@
-**** IHAHIRE
+****IHAHIRE
 
-** By MANISHIMWE BENEDICTE
+***By MANISHIMWE BENEDICTE
 
 
 The Ihahire mob application is which has two option for user,one for user which to post a vegetable product to sell and
 another option to  review the list of  products to buy .
 
 
-*** Get Started
+***Get Started
 * android studio  v3.5 installed
 * git clone https://github.com/mybene/Ihahire
 * user smartphone as emulator
 
-***  Prerequests
+***Prerequests
 
 * Build the many activity as possible
 * Use ButterKnife
 * Master the arrary adapter for some activity
 
 
-*** Technologies used
+***Technologies used
 
 * android studio
 * API level from 14 to the update version
 
-*** To debug
+***To debug
 * log .e() in logcat
 
-***  License
+***License
 
 Copyright © 2019 <Manishimwe Benedicte>
 
