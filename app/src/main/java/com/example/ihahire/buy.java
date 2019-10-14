@@ -30,11 +30,7 @@ public class buy extends AppCompatActivity {
 
         ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,products);
         mProductList.setAdapter(adapter);
-//
-//        Intent intent=getIntent();
-//
-//        String buylist= intent.getStringExtra("name");
-//        mBuyList.setText("Name of product:"+name );
+
     }
 }
 
