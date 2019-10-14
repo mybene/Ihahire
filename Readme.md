@@ -1,6 +1,6 @@
-****IHAHIRE
+**** IHAHIRE
 
-***By MANISHIMWE BENEDICTE
+*** By MANISHIMWE BENEDICTE
 
 
 The Ihahire mob application is which has two option for user,one for user which to post a vegetable product to sell and
