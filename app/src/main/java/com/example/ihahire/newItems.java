@@ -22,7 +22,7 @@ public class newItems extends AppCompatActivity {
 
         String name=intent.getStringExtra("name");
 
-        mItemView.setText("The received product is"  +  name);
+        mItemView.setText("The received product is " + name);
     }
 }
 
