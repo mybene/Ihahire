@@ -23,6 +23,7 @@ another option to  review the list of  products to buy .
 
 * android studio
 * API level from 14 to the update version
+*
 
 ### To debug
 * log .e() in logcat
