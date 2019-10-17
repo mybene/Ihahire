@@ -13,12 +13,8 @@ import butterknife.ButterKnife;
 
 
 public class choice extends AppCompatActivity {
-
     @BindView(R.id.buy) Button mBuy;
     @BindView(R.id.sell) Button mSell;
-//     private Button mBuy;
-//     private Button mSell;
-
 
 
     @Override
@@ -27,8 +23,6 @@ public class choice extends AppCompatActivity {
         setContentView(R.layout.activity_choice);
 
       ButterKnife.bind(this);
-//       mBuy=(Button)findViewById(R.id.buy);
-//       mSell=(Button)findViewById(R.id.sell);
 
         mBuy.setOnClickListener(new View.OnClickListener() {
 

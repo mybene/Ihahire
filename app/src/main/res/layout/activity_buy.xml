@@ -16,16 +16,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="The List of products to buy"
-        android:id="@+id/buyList"
+        android:id="@+id/title"
         android:background="@color/colorPrimary"
         android:layout_marginTop="250dp"
         android:layout_centerHorizontal="true"/>
-    <GridView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numColumns="2"
         android:id="@+id/productList"
-        android:layout_below="@+id/buyList"
+        android:layout_below="@+id/title"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="@color/colorGrey"/>
