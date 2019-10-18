@@ -3,6 +3,7 @@
     package="com.example.ihahire">
 
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
 
         android:allowBackup="true"
@@ -11,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".newItems"></activity>
+        <activity android:name=".newItems"/>
         <activity android:name=".sell" />
         <activity android:name=".buy" />
         <activity android:name=".choice" />

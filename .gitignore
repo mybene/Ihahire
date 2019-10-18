@@ -1,7 +1,6 @@
 *.iml
 .gradle
 /settings.gradle
-/gradle.properties
 /build.gradle
 /gradlew.bat
 /local.properties
