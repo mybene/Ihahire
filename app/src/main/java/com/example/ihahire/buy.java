@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +20,7 @@ public class buy extends AppCompatActivity {
     private ListView mProductList;
     private TextView mTitle;
 
-    private String[] products = new String[]{"Cabbage", "carrot","","brocoli", "persil", "eegplant", "coniflower", "black bean", "peas", "lentil", "potatoes", "pumpinks",
+    private String[] products = new String[]{"Cabbage", "carrot","Lengalenga","brocoli", "persil", "eegplant", "coniflower", "black bean", "peas", "lentil", "potatoes", "pumpinks",
             "sweet potatoes", "garlic", "basil", "coriander", "parsely", "lettuce", "peppers", "tomatoes"};
 //    private String[] size= new String[]{"medium","Big","small","tall","red","green","leaf"};
 
