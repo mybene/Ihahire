@@ -11,8 +11,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 
 public class buy extends AppCompatActivity {
@@ -22,7 +26,10 @@ public class buy extends AppCompatActivity {
 
     private String[] products = new String[]{"Cabbage", "carrot","Lengalenga","brocoli", "persil", "eegplant", "coniflower", "black bean", "peas", "lentil", "potatoes", "pumpinks",
             "sweet potatoes", "garlic", "basil", "coriander", "parsely", "lettuce", "peppers", "tomatoes"};
-//    private String[] size= new String[]{"medium","Big","small","tall","red","green","leaf"};
+
+    private String [] location=new String[]{"Frulep","Simba Supermarket","La Galette","KIME Supermarket","German Butchery"};
+
+
 
 
     @Override
@@ -44,9 +51,7 @@ public class buy extends AppCompatActivity {
             }
         });
 
-        Intent intent=getIntent();
-        String title=intent.getStringExtra("title");
-        mTitle.setText("This products are available ,now ");
+
 
     }
 }

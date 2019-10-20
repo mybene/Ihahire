@@ -31,9 +31,6 @@ public class Location {
     @SerializedName("display_address")
     @Expose
     private List<String> displayAddress = null;
-    @SerializedName("cross_streets")
-    @Expose
-    private String crossStreets;
 
     /**
      * No args constructor for use in serialization
@@ -47,14 +44,13 @@ public class Location {
      * @param zipCode
      * @param country
      * @param address3
-     * @param crossStreets
      * @param address2
      * @param city
      * @param address1
      * @param displayAddress
      * @param state
      */
-    public Location(String address1, String address2, String address3, String city, String zipCode, String country, String state, List<String> displayAddress, String crossStreets) {
+    public Location(String address1, String address2, String address3, String city, String zipCode, String country, String state, List<String> displayAddress) {
         super();
         this.address1 = address1;
         this.address2 = address2;
@@ -64,7 +60,6 @@ public class Location {
         this.country = country;
         this.state = state;
         this.displayAddress = displayAddress;
-        this.crossStreets = crossStreets;
     }
 
     public String getAddress1() {
@@ -129,14 +124,6 @@ public class Location {
 
     public void setDisplayAddress(List<String> displayAddress) {
         this.displayAddress = displayAddress;
-    }
-
-    public String getCrossStreets() {
-        return crossStreets;
-    }
-
-    public void setCrossStreets(String crossStreets) {
-        this.crossStreets = crossStreets;
     }
 
 }

@@ -1,0 +1,35 @@
+package com.example.ihahire;
+
+import android.content.Context;
+import android.widget.ArrayAdapter;
+
+import androidx.annotation.NonNull;
+
+public class BuyArrayAdapter extends ArrayAdapter {
+
+    private Context mContext;
+    private  String[] mProducts;
+    private  String[] mLocation;
+
+    public BuyArrayAdapter( Context context, int resource, Context mContext, String[] mProducts, String[] mLocation) {
+        super(context, resource);
+        this.mContext = mContext;
+        this.mProducts = mProducts;
+        this.mLocation = mLocation;
+    }
+
+
+
+    @Override
+    public Object getItem(int position){
+        String products=mProducts[position];
+        String location=mLocation[position];
+        return String.format("%s \n Could be found at:%s",products,location);
+   }
+
+
+   @Override
+    public int getCount(){
+        return mProducts.length;
+   }
+}
