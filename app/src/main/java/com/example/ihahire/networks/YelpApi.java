@@ -1,4 +1,4 @@
-package com.example.ihahire.network;
+package com.example.ihahire.networks;
 
 import com.example.ihahire.models.Search;
 

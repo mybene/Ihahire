@@ -15,8 +15,8 @@ import com.example.ihahire.R;
 import com.example.ihahire.models.Business;
 import com.example.ihahire.models.Category;
 import com.example.ihahire.models.Search;
-import com.example.ihahire.network.YelpApi;
-import com.example.ihahire.network.YelpClient;
+import com.example.ihahire.networks.YelpApi;
+import com.example.ihahire.networks.YelpClient;
 
 import java.util.List;
 
