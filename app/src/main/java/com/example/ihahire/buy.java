@@ -29,7 +29,9 @@ public class buy extends AppCompatActivity {
 
     private String [] location=new String[]{"Frulep","Simba Supermarket","La Galette","KIME Supermarket","German Butchery"};
 
+    YelpApi client = YelpClient.getClient();
 
+    Call<Search> call = client.getProducts(location, "products");
 
 
     @Override
