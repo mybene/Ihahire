@@ -54,7 +54,9 @@ public class buy extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String products = ((TextView) view).getText().toString();
-                Toast.makeText(buy.this, products, Toast.LENGTH_LONG).show();
+                String location = ((TextView) view).getText().toString();
+
+                Toast.makeText(buy.this, location, Toast.LENGTH_LONG).show();
             }
         });
 
