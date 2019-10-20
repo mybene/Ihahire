@@ -44,15 +44,15 @@ public class Location {
 
     /**
      * 
-     * @param crossStreets
-     * @param displayAddress
      * @param zipCode
-     * @param state
-     * @param address1
-     * @param address2
-     * @param address3
      * @param country
+     * @param address3
+     * @param crossStreets
+     * @param address2
      * @param city
+     * @param address1
+     * @param displayAddress
+     * @param state
      */
     public Location(String address1, String address2, String address3, String city, String zipCode, String country, String state, List<String> displayAddress, String crossStreets) {
         super();

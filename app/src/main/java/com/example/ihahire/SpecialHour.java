@@ -31,11 +31,11 @@ public class SpecialHour {
 
     /**
      * 
-     * @param start
-     * @param isOvernight
      * @param date
      * @param isClosed
+     * @param start
      * @param end
+     * @param isOvernight
      */
     public SpecialHour(String date, Object isClosed, String start, String end, Boolean isOvernight) {
         super();

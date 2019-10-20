@@ -74,25 +74,25 @@ public class YelpBusinessesSearchResponse {
 
     /**
      * 
-     * @param transactions
-     * @param phone
-     * @param location
-     * @param alias
-     * @param imageUrl
-     * @param hours
-     * @param specialHours
-     * @param url
      * @param displayPhone
-     * @param photos
-     * @param id
-     * @param isClaimed
-     * @param price
-     * @param name
-     * @param reviewCount
-     * @param categories
+     * @param hours
      * @param rating
-     * @param isClosed
      * @param coordinates
+     * @param transactions
+     * @param specialHours
+     * @param photos
+     * @param url
+     * @param isClosed
+     * @param phone
+     * @param reviewCount
+     * @param price
+     * @param imageUrl
+     * @param name
+     * @param alias
+     * @param location
+     * @param id
+     * @param categories
+     * @param isClaimed
      */
     public YelpBusinessesSearchResponse(String id, String alias, String name, String imageUrl, Boolean isClaimed, Boolean isClosed, String url, String phone, String displayPhone, Integer reviewCount, List<Category> categories, Double rating, Location location, Coordinates coordinates, List<String> photos, String price, List<Hour> hours, List<Object> transactions, List<SpecialHour> specialHours) {
         super();

@@ -7,8 +7,10 @@ import retrofit2.http.Query;
 public interface YelpApi {
 
     @GET("businesses/detail")
-    Call<YelpBusinessesSearchResponse> getRestaurants(
-            @Query("location") String location,
-            @Query("term") String term
+    Call<YelpBusinessesSearchResponse> getProducts(
+            @Query("categories") String categories,
+            @Query("name") String name
+
+
     );
 }

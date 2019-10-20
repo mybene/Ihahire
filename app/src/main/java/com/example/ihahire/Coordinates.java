@@ -22,8 +22,8 @@ public class Coordinates {
 
     /**
      * 
-     * @param longitude
      * @param latitude
+     * @param longitude
      */
     public Coordinates(Double latitude, Double longitude) {
         super();

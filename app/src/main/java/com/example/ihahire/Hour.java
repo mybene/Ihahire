@@ -27,8 +27,8 @@ public class Hour {
     /**
      * 
      * @param hoursType
-     * @param open
      * @param isOpenNow
+     * @param open
      */
     public Hour(List<Open> open, String hoursType, Boolean isOpenNow) {
         super();

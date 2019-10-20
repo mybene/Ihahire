@@ -22,8 +22,8 @@ public class Category {
 
     /**
      * 
-     * @param title
      * @param alias
+     * @param title
      */
     public Category(String alias, String title) {
         super();

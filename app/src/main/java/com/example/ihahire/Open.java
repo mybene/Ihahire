@@ -29,9 +29,9 @@ public class Open {
     /**
      * 
      * @param start
+     * @param end
      * @param isOvernight
      * @param day
-     * @param end
      */
     public Open(Boolean isOvernight, String start, String end, Integer day) {
         super();
