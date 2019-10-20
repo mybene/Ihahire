@@ -34,8 +34,8 @@ public class buy extends AppCompatActivity {
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
-    private String[] products = new String[]{"Cabbage", "carrot", "Lengalenga", "brocoli", "persil", "eegplant", "coniflower", "black bean", "peas", "lentil", "potatoes", "pumpinks",
-            "sweet potatoes", "garlic", "basil", "coriander", "parsely", "lettuce", "peppers", "tomatoes"};
+    private String[] products = new String[]{"Cabbage", "Carrot", "Lengalenga", "Brocoli", "Persil", "Eggplant", "Coniflower", "Black bean", "Peas", "Lentil", "Potatoes", "Pumpinks",
+            "Sweet potatoes", "Garlic", "Basil", "Coriander", "Parsely", "Lettuce", "Peppers", "Tomatoes"};
 
     private String[] location = new String[]{"Frulep", "Simba Supermarket", "La Galette", "KIME Supermarket", "German Butchery"};
 
