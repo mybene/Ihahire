@@ -1,4 +1,4 @@
-package com.example.ihahire;
+package com.example.ihahire.ui;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

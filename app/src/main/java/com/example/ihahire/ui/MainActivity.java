@@ -1,4 +1,4 @@
-package com.example.ihahire;
+package com.example.ihahire.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.ihahire.R;
 
 public class MainActivity extends AppCompatActivity {
     private  Button mVasy;

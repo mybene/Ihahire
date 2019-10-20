@@ -1,4 +1,6 @@
-package com.example.ihahire;
+package com.example.ihahire.network;
+
+import com.example.ihahire.models.Search;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

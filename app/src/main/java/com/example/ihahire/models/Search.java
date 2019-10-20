@@ -1,5 +1,5 @@
 
-package com.example.ihahire;
+package com.example.ihahire.models;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

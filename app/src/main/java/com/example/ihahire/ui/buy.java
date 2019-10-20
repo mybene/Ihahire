@@ -1,15 +1,22 @@
-package com.example.ihahire;
+package com.example.ihahire.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.ihahire.R;
+import com.example.ihahire.models.Business;
+import com.example.ihahire.models.Category;
+import com.example.ihahire.models.Search;
+import com.example.ihahire.network.YelpApi;
+import com.example.ihahire.network.YelpClient;
 
 import java.util.List;
 
@@ -22,8 +29,10 @@ import retrofit2.Response;
 
 public class buy extends AppCompatActivity {
 
-    private ListView mProductList;
-    private TextView mTitle;
+    @BindView(R.id.productList) ListView mProductList;
+    @BindView(R.id.title) TextView mTitle;
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+    @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
     private String[] products = new String[]{"Cabbage", "carrot", "Lengalenga", "brocoli", "persil", "eegplant", "coniflower", "black bean", "peas", "lentil", "potatoes", "pumpinks",
             "sweet potatoes", "garlic", "basil", "coriander", "parsely", "lettuce", "peppers", "tomatoes"};
@@ -36,8 +45,7 @@ public class buy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy);
 
-        mProductList = (ListView) findViewById(R.id.productList);
-        mTitle = (TextView) findViewById(R.id.title);
+        ButterKnife.bind(this);
 
         ArrayAdapter tobuy = new ArrayAdapter(this, android.R.layout.simple_list_item_1, products);
         mProductList.setAdapter(tobuy);
@@ -58,6 +66,7 @@ public class buy extends AppCompatActivity {
         call.enqueue(new Callback<Search>() {
             @Override
             public void onResponse(Call<Search> call, Response<Search> response) {
+                hideProgressBar();
                 if (response.isSuccessful()) {
                     List<Business> productsList = response.body().getBusinesses();
                     String[] articles = new String[productsList.size()];
@@ -72,19 +81,41 @@ public class buy extends AppCompatActivity {
                         categories[i] = category.getTitle();
                     }
 
-                    BuyArrayAdapter tobuy = new BuyArrayAdapter(buy.this, android.R.layout.activity_list_item, articles, categories);
+                    ArrayAdapter tobuy = new BuyArrayAdapter(buy.this, android.R.layout.activity_list_item, articles, categories);
                     mProductList.setAdapter(tobuy);
 
                 }
             }
 
-            @Override
-            public void onFailure(Call<Search> call, Throwable t) {
 
-            }
+                @Override
+                public void onFailure(Call<Search> call, Throwable t) {
+                    hideProgressBar();
+                    showFailureMessage();
+                }
 
-        });
+            });
+        }
 
+        private void showFailureMessage() {
+            mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+            mErrorTextView.setVisibility(View.VISIBLE);
+        }
+
+        private void showUnsuccessfulMessage() {
+            mErrorTextView.setText("Something went wrong. Please try again later");
+            mErrorTextView.setVisibility(View.VISIBLE);
+        }
+
+        private void showRestaurants() {
+            mProductList.setVisibility(View.VISIBLE);
+            mTitle.setVisibility(View.VISIBLE);
+        }
+
+        private void hideProgressBar() {
+            mProgressBar.setVisibility(View.GONE);
+        }
     }
-}
+
+
 
