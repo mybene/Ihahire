@@ -11,12 +11,13 @@ public class BuyArrayAdapter extends ArrayAdapter {
     private  String[] mProducts;
     private  String[] mLocation;
 
-    public BuyArrayAdapter( Context context, int resource, Context mContext, String[] mProducts, String[] mLocation) {
+    public BuyArrayAdapter(Context context, int resource, String[] mProducts, String[] mLocation) {
         super(context, resource);
         this.mContext = mContext;
         this.mProducts = mProducts;
         this.mLocation = mLocation;
     }
+
 
 
 
