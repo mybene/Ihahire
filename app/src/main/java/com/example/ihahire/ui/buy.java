@@ -1,7 +1,5 @@
 package com.example.ihahire.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +9,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ihahire.R;
 import com.example.ihahire.models.Business;
@@ -58,7 +58,7 @@ public class buy extends AppCompatActivity {
                 String location = ((TextView) view).getText().toString();
 
                 Toast.makeText(buy.this, location, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(buy.this,BuyDetailFragment.class);
+                Intent intent = new Intent(buy.this,view_item.class);
                 startActivity(intent);
             }
         });
@@ -71,7 +71,7 @@ public class buy extends AppCompatActivity {
         call.enqueue(new Callback<Search>() {
             @Override
             public void onResponse(Call<Search> call, Response<Search> response) {
-                hideProgressBar();
+//                hideProgressBar();
                 if (response.isSuccessful()) {
                     List<Business> productsList = response.body().getBusinesses();
                     String[] articles = new String[productsList.size()];
@@ -95,31 +95,31 @@ public class buy extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<Search> call, Throwable t) {
-                    hideProgressBar();
-                    showFailureMessage();
+//                    hideProgressBar();
+//                    showFailureMessage();
                 }
 
             });
         }
-
-        private void showFailureMessage() {
-            mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
-            mErrorTextView.setVisibility(View.VISIBLE);
-        }
-
-        private void showUnsuccessfulMessage() {
-            mErrorTextView.setText("Something went wrong. Please try again later");
-            mErrorTextView.setVisibility(View.VISIBLE);
-        }
-
-        private void showRestaurants() {
-            mProductList.setVisibility(View.VISIBLE);
-            mTitle.setVisibility(View.VISIBLE);
-        }
-
-        private void hideProgressBar() {
-            mProgressBar.setVisibility(View.GONE);
-        }
+//
+//        private void showFailureMessage() {
+//            mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+//            mErrorTextView.setVisibility(View.VISIBLE);
+//        }
+//
+//        private void showUnsuccessfulMessage() {
+//            mErrorTextView.setText("Something went wrong. Please try again later");
+//            mErrorTextView.setVisibility(View.VISIBLE);
+//        }
+//
+//        private void showRestaurants() {
+//            mProductList.setVisibility(View.VISIBLE);
+//            mTitle.setVisibility(View.VISIBLE);
+//        }
+//
+//        private void hideProgressBar() {
+//            mProgressBar.setVisibility(View.GONE);
+//        }
     }
 
 

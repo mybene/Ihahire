@@ -3,7 +3,6 @@ package com.example.ihahire.ui;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
-import androidx.annotation.NonNull;
 
 public class BuyArrayAdapter extends ArrayAdapter {
 
