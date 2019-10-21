@@ -2,6 +2,7 @@ package com.example.ihahire.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -57,6 +58,8 @@ public class buy extends AppCompatActivity {
                 String location = ((TextView) view).getText().toString();
 
                 Toast.makeText(buy.this, location, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(buy.this,BuyDetailFragment.class);
+                startActivity(intent);
             }
         });
 

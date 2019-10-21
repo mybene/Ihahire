@@ -13,12 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.BuyDetail"></activity>
+        <activity android:name=".ui.view_item"></activity>
+        <activity android:name=".ui.BuyDetail" />
         <activity android:name=".ui.newItems" />
         <activity android:name=".ui.sell" />
-        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.buy" />
         <activity android:name=".ui.choice" />
-        <activity android:name=".ui.buy">
+        <activity android:name=".ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ihahire.ui.buy"></meta-data>
