@@ -11,11 +11,11 @@
         android:background="@color/colorPrimary">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
             android:id="@+id/marketImageView"
-            android:src="@drawable/market"
-            android:scaleType="centerCrop" />
+            android:layout_width="match_parent"
+            android:layout_height="248dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/display" />
 
         <RelativeLayout
             android:layout_width="match_parent"

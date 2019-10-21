@@ -3,11 +3,8 @@ package com.example.ihahire.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,16 +14,21 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class buy extends AppCompatActivity {
+public class buy extends AppCompatActivity implements View.OnClickListener {
 
-    @BindView(R.id.productList) ListView mProductList;
-    @BindView(R.id.title) TextView mTitle;
-    @BindView(R.id.errorTextView) TextView mErrorTextView;
 
-    private String[] products = new String[]{"Cabbage", "Carrot", "Lengalenga", "Brocoli", "Persil", "Eggplant", "Coniflower", "Black bean", "Peas", "Lentil", "Potatoes", "Pumpinks",
-            "Sweet potatoes", "Garlic", "Basil", "Coriander", "Parsely", "Lettuce", "Peppers", "Tomatoes"};
+    private static final String TAG = buy.class.getSimpleName();
 
-    private String[] location = new String[]{"Frulep", "Simba Supermarket", "La Galette", "KIME Supermarket", "German Butchery"};
+
+    @BindView(R.id.name) EditText mName;
+   @BindView(R.id.lookingButton) Button mLookingButton;
+
+
+    private String[] products = new String[]{"Protex", "CarrotLigth", "Whol-WHeat Bread", "White chocolate", "Printer HP", "Baby Daiper", "Protex",
+            "CarrotLigth","Whol-WHeat Bread", "White chocolate", "Printer HP", "Baby Daiper"};
+
+    private String[] shops = new String[]{"Frulep", "Simba Supermarket", "La Galette", "KIME Supermarket", "German Butchery", "Meru", "Frulep", "Simba Supermarket", "La Galette",
+            "KIME Supermarket", "German Butchery", "Meru"};
 
 
     @Override
@@ -36,83 +38,21 @@ public class buy extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        ArrayAdapter tobuy = new ArrayAdapter(this, android.R.layout.simple_list_item_1, products);
-        mProductList.setAdapter(tobuy);
-
-        mProductList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String products = ((TextView) view).getText().toString();
-                String location = ((TextView) view).getText().toString();
-
-                ArrayAdapter tobuy = new BuyArrayAdapter(buy.this, android.R.layout.activity_list_item, products,location);
-                mProductList.setAdapter(tobuy);
-
-
-                Toast.makeText(buy.this, location, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(buy.this,view_item.class);
-                startActivity(intent);
-            }
-        });
-
-
-//        YelpApi client = YelpClient.getClient();
-//
-//        Call<Search> call = client.getProducts(location, "products");
-//
-//        call.enqueue(new Callback<Search>() {
-//            @Override
-//            public void onResponse(Call<Search> call, Response<Search> response) {
-////                hideProgressBar();
-//                if (response.isSuccessful()) {
-//                    List<Business> productsList = response.body().getBusinesses();
-//                    String[] articles = new String[productsList.size()];
-//                    String[] categories = new String[productsList.size()];
-//
-//                    for (int i = 0; i < articles.length; i++) {
-//                        articles[i] = productsList.get(i).getName();
-//                    }
-//
-//                    for (int i = 0; i < categories.length; i++) {
-//                        Category category = productsList.get(i).getCategories().get(0);
-//                        categories[i] = category.getTitle();
-//                    }
-//
-//                    ArrayAdapter tobuy = new BuyArrayAdapter(buy.this, android.R.layout.activity_list_item, articles, categories);
-//                    mProductList.setAdapter(tobuy);
-//
-//                }
-//            }
-//
-//
-//                @Override
-//                public void onFailure(Call<Search> call, Throwable t) {
-////                    hideProgressBar();
-////                    showFailureMessage();
-//                }
-//
-//            });
-        }
-//
-//        private void showFailureMessage() {
-//            mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
-//            mErrorTextView.setVisibility(View.VISIBLE);
-//        }
-//
-//        private void showUnsuccessfulMessage() {
-//            mErrorTextView.setText("Something went wrong. Please try again later");
-//            mErrorTextView.setVisibility(View.VISIBLE);
-//        }
-//
-//        private void showRestaurants() {
-//            mProductList.setVisibility(View.VISIBLE);
-//            mTitle.setVisibility(View.VISIBLE);
-//        }
-//
-//        private void hideProgressBar() {
-//            mProgressBar.setVisibility(View.GONE);
-//        }
+        mLookingButton.setOnClickListener(this);
     }
 
+
+
+    @Override
+    public void onClick(View v) {
+        if(v==mLookingButton){
+            String item=mName.getText().toString();
+            Intent intent= new Intent(buy.this,view_item.class);
+            intent.putExtra("item",item);
+            startActivity(intent);
+        }
+
+    }
+}
 
 

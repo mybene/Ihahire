@@ -7,5 +7,6 @@
     <color name="colorPurple">#f1f</color>
     <color name="colorGrey">#BBB</color>
     <color name="colorPrimaryLight">#FFCCBC</color>
+    <color name="colorBlack">#000000</color>
 
 </resources>

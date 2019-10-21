@@ -3,69 +3,54 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.buy">
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:scaleType="centerCrop"
+    android:src="@drawable/store"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/productList"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:visibility="gone"
-        android:layout_alignParentRight="true"
-        />
 
-<!--    <ProgressBar-->
-<!--        android:id="@+id/progressBar"-->
-<!--        style="?android:attr/progressBarStyle"-->
+
+
+
+<!--    <ListView-->
+<!--        android:id="@+id/productList"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerInParent="true"-->
-<!--       />-->
+<!--        android:layout_below="@+id/title"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_marginTop="39dp"-->
+<!--        android:layout_marginEnd="3dp"-->
+<!--        android:layout_marginRight="3dp"-->
+<!--        android:background="@color/colorGrey"-->
+<!--        android:numColumns="2"/>-->
 
-    <TextView
-        android:id="@+id/errorTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="16dp"
 
-        />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/buy"
-        android:scaleType="fitStart"/>
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="100dp"
+            android:background="@color/colorPrimaryLight"
+            android:hint="Search product here "
+            android:padding="12dp"
+            android:textSize="20dp"
+            android:textColor="@color/colorBlack" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="The List of products to buy"
-        android:id="@+id/title"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="250dp"
-        android:layout_centerHorizontal="true"
-    />
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numColumns="2"
-        android:id="@+id/productList"
-        android:layout_below="@+id/title"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@color/colorGrey"
-       />
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numColumns="2"
-        android:id="@+id/mLocation"
-        android:layout_below="@+id/productList"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@color/colorGrey"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/lookingButton"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorAccent"
+            android:textAlignment="center"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="180dp"/>
 </RelativeLayout>

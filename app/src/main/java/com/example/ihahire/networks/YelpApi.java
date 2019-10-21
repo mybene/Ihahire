@@ -10,7 +10,7 @@ public interface YelpApi {
 
     @GET("businesses/search")
     Call<Search> getProducts(
-            @Query("location") String[] location,
+            @Query("location") String location,
             @Query("term") String term
 
     );
