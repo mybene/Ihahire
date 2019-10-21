@@ -6,26 +6,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ihahire.R;
-import com.example.ihahire.models.Business;
-import com.example.ihahire.models.Category;
-import com.example.ihahire.models.Search;
-import com.example.ihahire.networks.YelpApi;
-import com.example.ihahire.networks.YelpClient;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class buy extends AppCompatActivity {
@@ -33,7 +22,6 @@ public class buy extends AppCompatActivity {
     @BindView(R.id.productList) ListView mProductList;
     @BindView(R.id.title) TextView mTitle;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
-    @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
     private String[] products = new String[]{"Cabbage", "Carrot", "Lengalenga", "Brocoli", "Persil", "Eggplant", "Coniflower", "Black bean", "Peas", "Lentil", "Potatoes", "Pumpinks",
             "Sweet potatoes", "Garlic", "Basil", "Coriander", "Parsely", "Lettuce", "Peppers", "Tomatoes"};
@@ -57,6 +45,10 @@ public class buy extends AppCompatActivity {
                 String products = ((TextView) view).getText().toString();
                 String location = ((TextView) view).getText().toString();
 
+                ArrayAdapter tobuy = new BuyArrayAdapter(buy.this, android.R.layout.activity_list_item, products,location);
+                mProductList.setAdapter(tobuy);
+
+
                 Toast.makeText(buy.this, location, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(buy.this,view_item.class);
                 startActivity(intent);
@@ -64,42 +56,42 @@ public class buy extends AppCompatActivity {
         });
 
 
-        YelpApi client = YelpClient.getClient();
-
-        Call<Search> call = client.getProducts(location, "products");
-
-        call.enqueue(new Callback<Search>() {
-            @Override
-            public void onResponse(Call<Search> call, Response<Search> response) {
-//                hideProgressBar();
-                if (response.isSuccessful()) {
-                    List<Business> productsList = response.body().getBusinesses();
-                    String[] articles = new String[productsList.size()];
-                    String[] categories = new String[productsList.size()];
-
-                    for (int i = 0; i < articles.length; i++) {
-                        articles[i] = productsList.get(i).getName();
-                    }
-
-                    for (int i = 0; i < categories.length; i++) {
-                        Category category = productsList.get(i).getCategories().get(0);
-                        categories[i] = category.getTitle();
-                    }
-
-                    ArrayAdapter tobuy = new BuyArrayAdapter(buy.this, android.R.layout.activity_list_item, articles, categories);
-                    mProductList.setAdapter(tobuy);
-
-                }
-            }
-
-
-                @Override
-                public void onFailure(Call<Search> call, Throwable t) {
-//                    hideProgressBar();
-//                    showFailureMessage();
-                }
-
-            });
+//        YelpApi client = YelpClient.getClient();
+//
+//        Call<Search> call = client.getProducts(location, "products");
+//
+//        call.enqueue(new Callback<Search>() {
+//            @Override
+//            public void onResponse(Call<Search> call, Response<Search> response) {
+////                hideProgressBar();
+//                if (response.isSuccessful()) {
+//                    List<Business> productsList = response.body().getBusinesses();
+//                    String[] articles = new String[productsList.size()];
+//                    String[] categories = new String[productsList.size()];
+//
+//                    for (int i = 0; i < articles.length; i++) {
+//                        articles[i] = productsList.get(i).getName();
+//                    }
+//
+//                    for (int i = 0; i < categories.length; i++) {
+//                        Category category = productsList.get(i).getCategories().get(0);
+//                        categories[i] = category.getTitle();
+//                    }
+//
+//                    ArrayAdapter tobuy = new BuyArrayAdapter(buy.this, android.R.layout.activity_list_item, articles, categories);
+//                    mProductList.setAdapter(tobuy);
+//
+//                }
+//            }
+//
+//
+//                @Override
+//                public void onFailure(Call<Search> call, Throwable t) {
+////                    hideProgressBar();
+////                    showFailureMessage();
+//                }
+//
+//            });
         }
 //
 //        private void showFailureMessage() {
