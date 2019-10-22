@@ -47,7 +47,7 @@ public class buy extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         if(v==mLookingButton){
             String item=mName.getText().toString();
-            Intent intent= new Intent(buy.this,view_item.class);
+            Intent intent= new Intent(buy.this, BuyListActivity.class);
             intent.putExtra("item",item);
             startActivity(intent);
         }

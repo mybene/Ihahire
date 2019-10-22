@@ -6,14 +6,15 @@
     tools:context="com.example.ihahire.ui.BuyDetail">
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+        android:id="@+id/vpPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.viewpager.widget.PagerTabStrip
-            android:id="@+id/pagerHeader"
+            android:id="@+id/pager_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="top"
             android:paddingBottom="4dp"
             android:paddingTop="4dp" />
 

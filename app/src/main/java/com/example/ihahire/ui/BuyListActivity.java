@@ -1,3 +1,4 @@
+
 package com.example.ihahire.ui;
 
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ihahire.R;
+import com.example.ihahire.adapters.BuyArrayAdapter;
 import com.example.ihahire.models.Business;
 import com.example.ihahire.models.Category;
 import com.example.ihahire.models.Search;
@@ -24,26 +26,29 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class view_item extends AppCompatActivity {
+public class BuyListActivity extends AppCompatActivity {
 
 
     @BindView(R.id.itemListView) ListView mItemListView;
-    @BindView(R.id.errorTextView)TextView mErrorTextView;
+    @BindView(R.id.placeTextView) TextView mPlaceTextView;
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
-    @BindView(R.id.placeTextView)TextView mPlaceTextView;
+
+
+//    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+//   private BuyListAdapter buyAdapter;
+//   public List<Business> mBuy;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_item);
+        setContentView(R.layout.activity_buy_list);
 
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("item");
-
-
 
 
 
@@ -58,10 +63,11 @@ public class view_item extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     List<Business> productsList = response.body().getBusinesses();
+
                     String[] products = new String[productsList.size()];
                     String[] categories = new String[productsList.size()];
 
-                    for (int i = 0; i < products.length; i++){
+                    for (int i = 0; i < products.length; i++) {
                         products[i] = productsList.get(i).getName();
                     }
 
@@ -70,10 +76,24 @@ public class view_item extends AppCompatActivity {
                         categories[i] = category.getTitle();
                     }
 
-                    BuyArrayAdapter adapter = new BuyArrayAdapter(view_item.this, android.R.layout.simple_list_item_1, products, categories);
-                    mItemListView.setAdapter(adapter);
 
-                    showRestaurants();
+
+//                    mBuy=response.body().getBusinesses();
+//
+//                    buyAdapter= new BuyListAdapter(BuyListActivity.this,mBuy);
+//
+//                    mRecyclerView.setAdapter(buyAdapter);
+//                    RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(BuyListActivity.this);
+//                    mRecyclerView.setLayoutManager(layoutManager);
+//                    mRecyclerView.setHasFixedSize(true);
+
+
+
+
+                    BuyArrayAdapter adapter = new BuyArrayAdapter(BuyListActivity.this, android.R.layout.simple_list_item_1, products, categories);
+                    mItemListView.setAdapter(adapter);
+                    showmBuy();
+
                 } else {
                     showUnsuccessfulMessage();
                 }
@@ -100,14 +120,15 @@ public class view_item extends AppCompatActivity {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
-    private void showRestaurants() {
+    private void showmBuy() {
         mItemListView.setVisibility(View.VISIBLE);
         mPlaceTextView.setVisibility(View.VISIBLE);
+
     }
 
     private void hideProgressBar() {
         mProgressBar.setVisibility(View.GONE);
     }
-
-
 }
+
+

@@ -34,6 +34,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textSize="20sp"
+                android:gravity="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
 
@@ -46,18 +47,23 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/colorAccent"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:gravity="center_vertical"/>
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Carrot,Frulep"-->
-<!--                android:id="@+id/cuisineTextView"-->
-<!--                android:layout_below="@+id/restaurantNameTextView"-->
-<!--                android:layout_alignParentLeft="true"-->
-<!--                android:layout_alignParentStart="true"-->
-<!--                android:textColor="@color/colorPrimaryLight"-->
-<!--                android:textStyle="italic" />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20$"
+                android:id="@+id/priceTextView"
+                android:layout_alignTop="@+id/ratingTextView"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:gravity="center_vertical"/>
+
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -65,13 +71,14 @@
             android:layout_height="match_parent">
 
             <LinearLayout
+
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_above="@+id/bookedroductsButton"
+                android:layout_above="@+id/bookedProductsButton"
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
                 android:paddingRight="30dp"
@@ -122,7 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="BOOK THE PRODUCT "
-                android:id="@+id/saveRestaurantButton"
+                android:id="@+id/bookedProductsButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
                 android:textColor="@color/colorPrimary"

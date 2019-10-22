@@ -1,9 +1,11 @@
-package com.example.ihahire.ui;
+package com.example.ihahire.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
+
+import com.example.ihahire.ui.BuyListActivity;
 
 
 public class BuyArrayAdapter extends ArrayAdapter {
@@ -13,7 +15,7 @@ public class BuyArrayAdapter extends ArrayAdapter {
     private  String[] mLocation;
 
 
-    public BuyArrayAdapter(@NonNull view_item context, int resource, String[] mLocation, String[] mProducts) {
+    public BuyArrayAdapter(@NonNull BuyListActivity context, int resource, String[] mLocation, String[] mProducts) {
         super((Context) context, resource);
         this.mContext = mContext;
         this.mProducts = mProducts;
