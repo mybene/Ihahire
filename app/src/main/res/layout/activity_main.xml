@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,33 +13,39 @@
         android:scaleType="centerCrop"
         android:src="@drawable/homepage"
         tools:layout_editor_absoluteX="-51dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        android:id="@+id/homeImage"/>
 
 
-    <view class="androidx.appcompat.app.AlertController$RecycleListView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="">
-
-
+        android:layout_height="wrap_content"
+        android:layout_below="@id/homeImage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        android:layout_alignParentRight="true" />
 
 
     <TextView
-        android:id="@+id/WelcometextView"
+        android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No need to struggle to find a product in markets. Iharire App help you to
-       find  product online  the shops has the needed product."
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="295dp"
-        android:layout_margin="80dp"/>
+        android:text="@string/welcomeTextView"
+       android:layout_centerVertical="true"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:textColor="@color/colorwhite"
+       />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get Started "
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="532dp" />
-    </view>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_below="@id/welcomeTextView"
+        android:layout_marginTop="112dp"
+        android:layout_marginBottom="60dp"
+        android:text="Get Started " />
+
+</RelativeLayout>

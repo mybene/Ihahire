@@ -5,7 +5,10 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorwhite">#FFFF</color>
     <color name="colorblack">#BBBBBBB</color>
-    <color name="colorAccent">#100FFFF</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorGreen">#00FF7F</color>
+    <color name="colorYellow">#9ACD32</color>
+    <color name="colorMidnightBlue">#191970</color>
+    <color name="colorLightSlateGray">#778899</color>
+    <color name="colorChocolate">#D2691E</color>
 </resources>

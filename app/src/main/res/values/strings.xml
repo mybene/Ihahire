@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Ihahire2</string>
+    <string name="app_name">Ihahire</string>
+    <string name="welcomeTextView">No need to struggle to find a product in markets.
+         Iharire App help you to find  product online  the shops has the needed product.</string>
+
 </resources>
