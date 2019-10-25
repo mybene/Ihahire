@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 
 
 
-public class sell extends AppCompatActivity implements View.OnClickListener {
+public class sellActivity extends AppCompatActivity implements View.OnClickListener {
 
   @BindView(R.id.name) EditText mName;
   @BindView(R.id.selling) Button mSelling;
@@ -29,7 +29,7 @@ public class sell extends AppCompatActivity implements View.OnClickListener {
 
         ButterKnife.bind(this);
 
-//        mSelling=(Button)findViewById(R.id.sell);
+//        mSelling=(Button)findViewById(R.id.sellActivity);
 //        mName=(EditText)findViewById(R.id.name);
         mSelling.setOnClickListener(this);
 
@@ -41,8 +41,8 @@ public class sell extends AppCompatActivity implements View.OnClickListener {
     public   void onClick(View mSelling) {
 
             String name = mName.getText().toString();
-            Toast.makeText(sell.this, "Your product is received!!!", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(sell.this, newItems.class);
+            Toast.makeText(sellActivity.this, "Your product is received!!!", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(sellActivity.this, newItemsActivity.class);
             intent.putExtra("name", name);
             startActivity(intent);
 

@@ -12,8 +12,8 @@ import java.util.List;
 public class BuyPagerAdapter extends FragmentPagerAdapter {
     private List<Business> mBuy;
 
-    public BuyPagerAdapter(FragmentManager fm, int behavior, List<Business> products) {
-        super(fm, behavior);
+    public BuyPagerAdapter(FragmentManager fm, List<Business> products) {
+        super(fm);
         mBuy = products;
     }
 

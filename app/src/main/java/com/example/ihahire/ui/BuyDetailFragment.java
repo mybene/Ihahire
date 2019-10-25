@@ -45,7 +45,7 @@ public class BuyDetailFragment extends Fragment {
     public  static  BuyDetailFragment newInstance(Business mBuy){
         BuyDetailFragment buyDetailFragment= new BuyDetailFragment();
         Bundle args= new Bundle();
-        args.putParcelable("buy", Parcels.wrap(mBuy));
+        args.putParcelable("BuyMainActivity", Parcels.wrap(mBuy));
         buyDetailFragment.setArguments(args);
         return buyDetailFragment;
 
@@ -54,7 +54,7 @@ public class BuyDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBuy=Parcels.unwrap(getArguments().getParcelable("buy"));
+        mBuy=Parcels.unwrap(getArguments().getParcelable("BuyMainActivity"));
 
     }
 

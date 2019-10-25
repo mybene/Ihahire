@@ -5,13 +5,15 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ihahire.R;
 import com.example.ihahire.models.Business;
-import com.example.ihahire.ui.BuyDetail;
+import com.example.ihahire.ui.BuyDetailActivity;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -33,7 +35,7 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
 
     @Override
     public BuyListAdapter.BuyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_buy_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_buy, parent, false);
         BuyViewHolder viewHolder = new BuyViewHolder(view);
         return viewHolder;
     }
@@ -50,7 +52,7 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
 
     public class BuyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-
+        @BindView(R.id.marketImageView) ImageView address;
         @BindView(R.id.phoneTextView) TextView phone;
         @BindView(R.id.ratingTextView) TextView rate;
         @BindView(R.id.placeTextView) TextView shop;
@@ -61,6 +63,7 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
 
         public BuyViewHolder(View itemView) {
             super(itemView);
+
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
 
@@ -70,7 +73,7 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
-            Intent intent = new Intent(mContext, BuyDetail.class);
+            Intent intent = new Intent(mContext, BuyDetailActivity.class);
             intent.putExtra("position", itemPosition);
             intent.putExtra("products", Parcels.wrap(mBuy));
             mContext.startActivity(intent);
@@ -79,6 +82,7 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
         public void bindBuy(Business buy) {
             shop.setText(buy.getName());
             mCategoriesLabel.setText(buy.getCategories().get(0).getTitle());
+            Picasso.get().load(buy.getImageUrl()).into(address);
             rate.setText("Rating: " + buy.getRating() + "/5");
             phone.setText(" Call on : "+buy.getPhone());
             shop.setText("Available at :"+ buy.getLocation());

@@ -14,10 +14,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class buy extends AppCompatActivity implements View.OnClickListener {
+public class BuyMainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private static final String TAG = buy.class.getSimpleName();
+    private static final String TAG = BuyMainActivity.class.getSimpleName();
 
 
     @BindView(R.id.name) EditText mName;
@@ -34,7 +34,7 @@ public class buy extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buy);
+        setContentView(R.layout.activity_main_buy);
 
         ButterKnife.bind(this);
 
@@ -47,7 +47,7 @@ public class buy extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         if(v==mLookingButton){
             String item=mName.getText().toString();
-            Intent intent= new Intent(buy.this, BuyListActivity.class);
+            Intent intent= new Intent(BuyMainActivity.this, BuyListActivity.class);
             intent.putExtra("item",item);
             startActivity(intent);
         }

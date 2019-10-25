@@ -3,7 +3,6 @@ package com.example.ihahire.ui;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.ihahire.R;
@@ -16,7 +15,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class BuyDetail extends AppCompatActivity {
+public class BuyDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.vpPager) ViewPager mViewPager;
     private BuyPagerAdapter adapterViewPager;
@@ -31,7 +30,7 @@ public class BuyDetail extends AppCompatActivity {
         mBuy = Parcels.unwrap(getIntent().getParcelableExtra("restaurants"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
-        adapterViewPager = new BuyPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mBuy);
+        adapterViewPager = new BuyPagerAdapter(getSupportFragmentManager(),mBuy);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
     }

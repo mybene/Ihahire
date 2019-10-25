@@ -11,7 +11,8 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.ihahire.BuildConfig.YELP_API_KEY;
+
+import static com.example.ihahire.ui.Constants.YELP_API_KEY;
 import static com.example.ihahire.ui.Constants.YELP_BASE_URL;
 
 public class YelpClient {

@@ -3,8 +3,8 @@
     package="com.example.ihahire">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!--    <uses-permission android:name="android.permission.CAMERA" />-->
+<!--    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
 
     <application
         android:allowBackup="true"
@@ -14,15 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.BuyListActivity"></activity>
-        <activity android:name=".ui.BuyDetail" />
-        <activity android:name=".ui.newItems" />
-        <activity android:name=".ui.sell" />
-        <activity android:name=".ui.buy" />
-        <activity android:name=".ui.choice" />
+        <activity android:name=".ui.BuyDetailActivity" />
+        <activity android:name=".ui.newItemsActivity" />
+        <activity android:name=".ui.sellActivity" />
+        <activity android:name=".ui.BuyMainActivity" />
+        <activity android:name=".ui.choiceActivity" />
         <activity android:name=".ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ihahire.ui.buy"></meta-data>
+                android:value="com.example.ihahire.ui.BuyMainActivity"></meta-data>
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -4,16 +4,16 @@ package com.example.ihahire.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ihahire.R;
-import com.example.ihahire.adapters.BuyArrayAdapter;
+import com.example.ihahire.adapters.BuyListAdapter;
 import com.example.ihahire.models.Business;
-import com.example.ihahire.models.Category;
 import com.example.ihahire.models.Search;
 import com.example.ihahire.networks.YelpApi;
 import com.example.ihahire.networks.YelpClient;
@@ -28,22 +28,23 @@ import retrofit2.Response;
 
 public class BuyListActivity extends AppCompatActivity {
 
-
-    @BindView(R.id.itemListView) ListView mItemListView;
-    @BindView(R.id.placeTextView) TextView mPlaceTextView;
+//
+//    @BindView(R.id.itemListView) ListView mItemListView;
+//    @BindView(R.id.placeTextView) TextView mPlaceTextView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
 
-//    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
-//   private BuyListAdapter buyAdapter;
-//   public List<Business> mBuy;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+
+   private BuyListAdapter buyAdapter;
+   public List<Business> mBuy;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buy_list);
+        setContentView(R.layout.activity_buy);
 
         ButterKnife.bind(this);
 
@@ -62,36 +63,36 @@ public class BuyListActivity extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    List<Business> productsList = response.body().getBusinesses();
-
-                    String[] products = new String[productsList.size()];
-                    String[] categories = new String[productsList.size()];
-
-                    for (int i = 0; i < products.length; i++) {
-                        products[i] = productsList.get(i).getName();
-                    }
-
-                    for (int i = 0; i < categories.length; i++) {
-                        Category category = productsList.get(i).getCategories().get(0);
-                        categories[i] = category.getTitle();
-                    }
-
-
-
-//                    mBuy=response.body().getBusinesses();
+//                    List<Business> productsList = response.body().getBusinesses();
 //
-//                    buyAdapter= new BuyListAdapter(BuyListActivity.this,mBuy);
+//                    String[] products = new String[productsList.size()];
+//                    String[] categories = new String[productsList.size()];
 //
-//                    mRecyclerView.setAdapter(buyAdapter);
-//                    RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(BuyListActivity.this);
-//                    mRecyclerView.setLayoutManager(layoutManager);
-//                    mRecyclerView.setHasFixedSize(true);
+//                    for (int i = 0; i < products.length; i++) {
+//                        products[i] = productsList.get(i).getName();
+//                    }
+//
+//                    for (int i = 0; i < categories.length; i++) {
+//                        Category category = productsList.get(i).getCategories().get(0);
+//                        categories[i] = category.getTitle();
+//                    }
+
+
+
+                    mBuy=response.body().getBusinesses();
+
+                    buyAdapter= new BuyListAdapter(BuyListActivity.this,mBuy);
+                    mRecyclerView.setAdapter(buyAdapter);
+
+                    RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(BuyListActivity.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
 
 
 
 
-                    BuyArrayAdapter adapter = new BuyArrayAdapter(BuyListActivity.this, android.R.layout.simple_list_item_1, products, categories);
-                    mItemListView.setAdapter(adapter);
+//                    BuyArrayAdapter adapter = new BuyArrayAdapter(BuyListActivity.this, android.R.layout.simple_list_item_1, products, categories);
+//                    mItemListView.setAdapter(adapter);
                     showmBuy();
 
                 } else {
@@ -121,8 +122,8 @@ public class BuyListActivity extends AppCompatActivity {
     }
 
     private void showmBuy() {
-        mItemListView.setVisibility(View.VISIBLE);
-        mPlaceTextView.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.VISIBLE);
+//        mPlaceTextView.setVisibility(View.VISIBLE);
 
     }
 

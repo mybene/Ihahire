@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.example.ihahire.R;
 
-public class newItems extends AppCompatActivity {
+public class newItemsActivity extends AppCompatActivity {
 //    private TextView mArticles;
     private TextView mItemView;
 

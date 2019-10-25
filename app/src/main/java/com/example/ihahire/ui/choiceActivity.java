@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class choice extends AppCompatActivity {
+public class choiceActivity extends AppCompatActivity {
     @BindView(R.id.buy) Button mBuy;
     @BindView(R.id.sell) Button mSell;
 
@@ -29,7 +29,7 @@ public class choice extends AppCompatActivity {
 
            @Override
            public void onClick(View v) {
-               Intent intent = new Intent(choice.this, buy.class);
+               Intent intent = new Intent(choiceActivity.this, BuyMainActivity.class);
                startActivity(intent);
 
            }
@@ -38,7 +38,7 @@ public class choice extends AppCompatActivity {
         mSell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1=new Intent(choice.this,sell.class);
+                Intent intent1=new Intent(choiceActivity.this, sellActivity.class);
                 startActivity(intent1);
             }
         });

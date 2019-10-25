@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         mVasy.setOnClickListener(new View.OnClickListener(){
             @Override
             public  void onClick(View v) {
-                //Toast to show the user that  buying  choice is loading
+                //Toast to show the user that  buying  choiceActivity is loading
                 Toast.makeText(MainActivity.this, "Welcome!!!", Toast.LENGTH_LONG).show();
 
-                Intent intent= new Intent(MainActivity.this,choice.class);
+                Intent intent= new Intent(MainActivity.this, choiceActivity.class);
                 startActivity(intent);
             }
 
