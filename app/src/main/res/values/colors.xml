@@ -3,10 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorWhite">#fff</color>
-    <color name="colorPurple">#f1f</color>
-    <color name="colorGrey">#BBB</color>
-    <color name="colorPrimaryLight">#FFCCBC</color>
-    <color name="colorBlack">#000000</color>
-
+    <color name="colorwhite">#FFFF</color>
+    <color name="colorblack">#BBBBBBB</color>
+    <color name="colorAccent">#100FFFF</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#D81B60</color>
 </resources>

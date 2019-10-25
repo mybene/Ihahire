@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ihahire.ui.MainActivity">
+
 
     <ImageView
-        android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/homepage" />
+        android:src="@drawable/homepage"
+        tools:layout_editor_absoluteX="-51dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+
+    <view class="androidx.appcompat.app.AlertController$RecycleListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="">
+
+
+
+
     <TextView
+        android:id="@+id/WelcometextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome on Isange  market"
-        android:padding="10sp"
-        android:textSize="30sp"
-        android:layout_margin="80dp"
-        android:textColor="@color/colorWhite"
-        android:textStyle="italic" />
-
+        android:text="No need to struggle to find a product in markets. Iharire App help you to
+       find  product online  the shops has the needed product."
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="295dp"
+        android:layout_margin="80dp"/>
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/vasy"
-        android:background="@color/colorPurple"
-        android:textColor="@color/colorPrimary"
-        android:text="Let's Go"
-        android:padding="20sp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
-
-</RelativeLayout>
+        android:text="Get Started "
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="532dp" />
+    </view>
+</androidx.constraintlayout.widget.ConstraintLayout>
