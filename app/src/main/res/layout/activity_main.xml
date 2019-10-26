@@ -1,51 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.ihahire.ui.MainActivity">
-
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/homepage"
-        tools:layout_editor_absoluteX="-51dp"
-        tools:layout_editor_absoluteY="0dp"
+        android:src="@drawable/home"
         android:id="@+id/homeImage"/>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/homeImage"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:visibility="gone"
-        android:layout_alignParentRight="true" />
-
 
     <TextView
-        android:id="@+id/welcomeTextView"
+        android:id="@+id/AppNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcomeTextView"
-       android:layout_centerVertical="true"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="60dp"
-        android:textColor="@color/colorwhite"
-       />
+        android:text="@string/app_name"
+        android:layout_centerHorizontal="true"
+        android:textStyle="italic"
+        android:textSize="80sp"
+        android:textColor="@color/colorwhite" />
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/welcomeTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="60dp"-->
+<!--        android:layout_marginRight="60dp"-->
+<!--        android:padding="8dp"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:text="@string/welcomeText"-->
+<!--        android:textColor="@color/colorChocolate" />-->
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/vasy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/welcomeTextView"
-        android:layout_marginTop="112dp"
-        android:layout_marginBottom="60dp"
-        android:text="Get Started " />
+
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorwhite"
+        android:text="Already have an account? Log in here!"
+        android:textColor="@color/colorRed" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login"
+        android:id="@+id/create"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorwhite"
+        android:text="Create Account"
+        android:textColor="@color/colorRed"/>
+
 
 </RelativeLayout>
+

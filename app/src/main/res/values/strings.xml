@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">Ihahire</string>
-    <string name="welcomeTextView">No need to struggle to find a product in markets.
+    <string name="welcomeText">No need to struggle to find a product in markets.
          Iharire App help you to find  product online  the shops has the needed product.</string>
-
+    <string name="selling">Thank for selling with Us, our purchase officer will contact you soon.</string>
+    <string name="title_activity_login">Login</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>
