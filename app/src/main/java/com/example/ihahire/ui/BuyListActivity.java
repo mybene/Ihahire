@@ -1,7 +1,9 @@
 package com.example.ihahire.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -33,6 +35,8 @@ public class BuyListActivity extends AppCompatActivity {
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
+    private SharedPreferences mSharedPreferences;
+    private String mRecentProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,54 +45,66 @@ public class BuyListActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        Intent intent = getIntent();
-        String location = intent.getStringExtra("item");
 
 
-
-        YelpApi client = YelpClient.getClient();
-
-        Call<Search> call = client.getProducts(location, "products");
-
-        call.enqueue(new Callback<Search>() {
-            @Override
-            public void onResponse(Call<Search> call, Response<Search> response) {
-                hideProgressBar();
-
-                if (response.isSuccessful()) {
-                    List<Business> productsList = response.body().getBusinesses();
-
-                    String[] products = new String[productsList.size()];
-                    String[] categories = new String[productsList.size()];
-
-                    for (int i = 0; i < products.length; i++) {
-                        products[i] = productsList.get(i).getName();
-                    }
-
-                    for (int i = 0; i < categories.length; i++) {
-                        Category category = productsList.get(i).getCategories().get(0);
-                        categories[i] = category.getTitle();
-                    }
-
-
-                    BuyArrayAdapter adapter = new BuyArrayAdapter(BuyListActivity.this, android.R.layout.simple_list_item_1, products, categories);
-                    mItemListView.setAdapter(adapter);
-                    showmBuy();
-
-                } else {
-                    showUnsuccessfulMessage();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Search> call, Throwable t) {
-                hideProgressBar();
-                showFailureMessage();
-            }
-
-        });
-
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentProduct = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        if (mRecentProduct != null) {
+            getProduct(mRecentProduct);
+        }
     }
+
+        private void getProduct(String mRecentProduct) {
+
+            Intent intent = getIntent();
+            String location = intent.getStringExtra("item");
+
+            YelpApi client = YelpClient.getClient();
+
+            Call<Search> call = client.getProducts(location, "products");
+
+            call.enqueue(new Callback<Search>() {
+                @Override
+                public void onResponse(Call<Search> call, Response<Search> response) {
+                    hideProgressBar();
+
+                    if (response.isSuccessful()) {
+                        List<Business> productsList = response.body().getBusinesses();
+
+                        String[] products = new String[productsList.size()];
+                        String[] categories = new String[productsList.size()];
+
+                        for (int i = 0; i < products.length; i++) {
+                            products[i] = productsList.get(i).getName();
+                        }
+
+                        for (int i = 0; i < categories.length; i++) {
+                            Category category = productsList.get(i).getCategories().get(0);
+                            categories[i] = category.getTitle();
+                        }
+
+
+                        BuyArrayAdapter adapter = new BuyArrayAdapter(BuyListActivity.this, android.R.layout.simple_list_item_1, products, categories);
+                        mItemListView.setAdapter(adapter);
+                        showmBuy();
+
+                    } else {
+                        showUnsuccessfulMessage();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Search> call, Throwable t) {
+                    hideProgressBar();
+                    showFailureMessage();
+                }
+
+            });
+        }
+
+
+
+
 
     private void showFailureMessage() {
         mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");

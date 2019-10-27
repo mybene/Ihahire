@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,11 +50,12 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
     }
 
     public class BuyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-//
-//        @BindView(R.id.marketImageView) ImageView address;
+
+        @BindView(R.id.marketImageView)
+        ImageView address;
 //        @BindView(R.id.phoneTextView) TextView phone;
-//        @BindView(R.id.ratingTextView) TextView rate;
-//        @BindView(R.id.placeTextView) TextView shop;
+        @BindView(R.id.ratingTextView) TextView rate;
+        @BindView(R.id.placeTextView) TextView shop;
 //        @BindView(R.id.priceTextView)TextView price;
         @BindView(R.id.productNameTextView) TextView mCategoriesLabel;
 
@@ -78,12 +80,12 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
         }
 
         public void bindBuy(Business buy) {
-//            shop.setText(buy.getName());
-//            mCategoriesLabel.setText(buy.getCategories().get(0).getTitle());
+            shop.setText(buy.getName());
+            mCategoriesLabel.setText(buy.getCategories().get(0).getTitle());
 //            Picasso.get().load(buy.getImageUrl()).into(address);
-//            rate.setText("Rating: " + buy.getRating() + "/5");
+            rate.setText("Rating: " + buy.getRating() + "/5");
 //            phone.setText(" Call on : "+buy.getPhone());
-//            shop.setText("Available at :"+ buy.getLocation());
+            shop.setText("Available at :"+ buy.getLocation());
 
 
 

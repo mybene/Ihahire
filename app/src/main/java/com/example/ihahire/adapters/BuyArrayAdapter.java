@@ -18,6 +18,7 @@ public class BuyArrayAdapter extends ArrayAdapter {
         this.mLocation = mLocation;
     }
 
+
     @Override
     public Object getItem(int position){
         String products=mProducts[position];
