@@ -1,52 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".ui.BuyMainActivity">
-<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:scaleType="centerCrop"
-    android:src="@drawable/search"/>
 
-
-    <ListView
-        android:id="@+id/productList"
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lookingButton"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginRight="3dp"
-        android:numColumns="2"/>
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/search" />
 
-
-
-        <EditText
+    <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:layout_marginTop="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:background="@color/colorDivider"
             android:hint="Search product here "
+            android:inputType="text"
+            android:textAlignment="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:padding="12dp"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="@color/colorPrimaryText" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Search"
-            android:id="@+id/lookingButton"
-            android:textColor="@color/colorwhite"
-            android:background="@color/colorAccent"
-            android:textAlignment="center"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="180dp"/>
+    <Button
+        android:id="@+id/lookingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="130dp"
+        android:background="@color/colorAccent"
+        android:layout_marginStart="130dp"
+        android:text="Search"
+        android:textColor="@color/colorwhite" />
 </RelativeLayout>

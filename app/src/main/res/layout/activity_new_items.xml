@@ -8,6 +8,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/selling"
         android:id="@+id/img3"
         android:scaleType="fitStart"/>
@@ -18,20 +19,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="210dp"
         android:text="@string/selling"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:textColor="@color/colorPrimaryText"
         android:textStyle="italic"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:text="detail of product"
-        android:textColor="@color/colorRed"
-        android:textSize="30dp"
-        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,7 +33,7 @@
         android:textColor="@color/colorAccent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp"
+        android:textSize="30sp"
         />
 
 </RelativeLayout>
