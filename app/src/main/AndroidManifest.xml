@@ -15,7 +15,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.LoginActivity"></activity>
         <activity android:name=".ui.SignUpActivity" />
-        <activity android:name=".ui.BuyActivity" />
+        <activity android:name=".ui.BuyActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".ui.MainActivity" />
+    </activity>
         <activity android:name=".ui.BuyDetailActivity" />
         <activity android:name=".ui.newItemsActivity" />
         <activity android:name=".ui.sellActivity" />
