@@ -59,7 +59,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         if(push==login){
             Intent go=new Intent(SignUpActivity.this,LoginActivity.class);
             go.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
             startActivity(go);
             finish();
         }
@@ -68,7 +67,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
 
     }
-
     private void createNewAccount() {
         final String name=nameOrg.getText().toString().trim();
         final String email=emailOrg.getText().toString().trim();
@@ -91,7 +89,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
     private void createAuthStateListener() {
 
-        authorizedListener   = new FirebaseAuth.AuthStateListener() {
+        authorizedListener = new FirebaseAuth.AuthStateListener() {
 
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -105,5 +103,20 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             }
 
         };
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        authorized.addAuthStateListener(authorizedListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (authorizedListener != null) {
+            authorized.removeAuthStateListener(authorizedListener);
+        }
     }
 }
