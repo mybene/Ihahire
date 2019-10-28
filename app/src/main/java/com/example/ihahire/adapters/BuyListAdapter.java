@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,15 +25,14 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
     private Context mContext;
 
 
-
-    public BuyListAdapter(Context context, List<Business> products) {
-        mContext = context;
-        mBuy = products;
+    public BuyListAdapter(List<Business> mBuy, Context mContext) {
+        this.mBuy = mBuy;
+        this.mContext = mContext;
     }
 
     @Override
     public BuyListAdapter.BuyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_buy, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.about_to_buy, parent, false);
         BuyViewHolder viewHolder = new BuyViewHolder(view);
         return viewHolder;
     }
@@ -51,13 +49,11 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
 
     public class BuyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        @BindView(R.id.marketImageView)
-        ImageView address;
-//        @BindView(R.id.phoneTextView) TextView phone;
+
         @BindView(R.id.ratingTextView) TextView rate;
         @BindView(R.id.placeTextView) TextView shop;
 //        @BindView(R.id.priceTextView)TextView price;
-        @BindView(R.id.productNameTextView) TextView mCategoriesLabel;
+//        @BindView(R.id.itemListView) TextView mCategoriesLabel;
 
         private Context mContext;
 
@@ -69,6 +65,13 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
 
             itemView.setOnClickListener(this);
         }
+        public void bindBuy(Business buy) {
+
+//            mCategoriesLabel.setText(buy.getCategories().get(0).getTitle());
+            rate.setText("Rating: " + buy.getRating() + "/5");
+            shop.setText("Available at :"+ buy.getLocation());
+
+        }
 
         @Override
         public void onClick(View v) {
@@ -79,16 +82,6 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
             mContext.startActivity(intent);
         }
 
-        public void bindBuy(Business buy) {
-            shop.setText(buy.getName());
-            mCategoriesLabel.setText(buy.getCategories().get(0).getTitle());
-//            Picasso.get().load(buy.getImageUrl()).into(address);
-            rate.setText("Rating: " + buy.getRating() + "/5");
-//            phone.setText(" Call on : "+buy.getPhone());
-            shop.setText("Available at :"+ buy.getLocation());
 
-
-
-        }
     }
 }

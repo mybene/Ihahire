@@ -2,13 +2,14 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/placeTextView"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
         android:visibility="gone"
@@ -19,11 +20,12 @@
         android:id="@+id/itemListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/placeTextView"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
         android:visibility="gone"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:footerDividersEnabled="true"/>
+
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -31,13 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
 
-    <TextView
-        android:id="@+id/placeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="The product is available on this shop"
-        android:visibility="gone" />
 
     <TextView
         android:id="@+id/errorTextView"

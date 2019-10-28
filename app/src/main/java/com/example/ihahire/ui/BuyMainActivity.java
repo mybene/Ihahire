@@ -93,7 +93,7 @@ public class BuyMainActivity extends AppCompatActivity implements View.OnClickLi
 //                addToSharedPreferences(product);
 //            }
 
-            Intent intent= new Intent(BuyMainActivity.this,BuyListActivity.class);
+            Intent intent= new Intent(BuyMainActivity.this, BuyActivity.class);
             intent.putExtra("item",product);
             startActivity(intent);
         }

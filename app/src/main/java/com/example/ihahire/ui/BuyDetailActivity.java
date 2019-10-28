@@ -14,24 +14,28 @@ import org.parceler.Parcels;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class BuyDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.vpPager) ViewPager mViewPager;
     private BuyPagerAdapter adapterViewPager;
-    List<Business> mBuy;
+    List<Business> products;
+
+    private int FragmentPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_detail);
 
+        ButterKnife.bind(this);
 
-        mBuy = Parcels.unwrap(getIntent().getParcelableExtra("restaurants"));
+        products = Parcels.unwrap(getIntent().getParcelableExtra("products"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
-//        adapterViewPager = new BuyPagerAdapter(getSupportFragmentManager(),mBuy);
-//        mViewPager.setAdapter(adapterViewPager);
-//        mViewPager.setCurrentItem(startingPosition);
+        adapterViewPager = new BuyPagerAdapter(getSupportFragmentManager(),products);
+        mViewPager.setAdapter(adapterViewPager);
+        mViewPager.setCurrentItem(startingPosition);
     }
 }
