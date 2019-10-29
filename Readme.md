@@ -3,8 +3,8 @@
 
 ## By MANISHIMWE BENEDICTE
 
-The Ihahire mob application is which has two option for user,one for user which to post a vegetable product to sell and
-another option to  review the list of  products to buy .
+Ihahire mobile application is for helping in communication between the seller and the custom of pastry products.
+there is faeture of seeling where the user can post the available products on his shop so those products can be purchased online while the feature of buying the custom search a product/king of pastry which he/she wants, the application gives him the differents shops have that product with the name, picture ,full adrress of the shop  and price . the custom could have many preferences inside of go search product without knowning its availabilty in the shops. 
 
 
 ### Get Started
@@ -23,10 +23,12 @@ another option to  review the list of  products to buy .
 
 * android studio
 * API level from 14 to the update version
-*
+*The Ihahire mob application is which has two option for user,one for user which to post a vegetable product to sell and
+7
+another option to  review the list of  products to buy .
 
 ### To debug
-* log .e() in logcat
+* log .d() in logcat
 
 ### License
 
