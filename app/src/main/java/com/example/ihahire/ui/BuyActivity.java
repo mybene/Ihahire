@@ -4,20 +4,22 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ihahire.R;
 import com.example.ihahire.adapters.BuyListAdapter;
-import com.example.ihahire.models.Business;
-import com.example.ihahire.models.Search;
-import com.example.ihahire.networks.YelpApi;
-import com.example.ihahire.networks.YelpClient;
+import com.example.ihahire.models.Shop;
+import com.example.ihahire.services.YelpService;
 
 import java.util.List;
 
@@ -35,17 +37,21 @@ public class BuyActivity extends AppCompatActivity {
 //
 //    @BindView(R.id.itemListView)ListView mItemListView;
 
-    @BindView(R.id.errorTextView) TextView mErrorTextView;
-    @BindView(R.id.progressBar) ProgressBar mProgressBar;
-    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+    @BindView(R.id.errorTextView)
+    TextView mErrorTextView;
+    @BindView(R.id.progressBar)
+    ProgressBar mProgressBar;
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
 
     private BuyListAdapter buyAdapter;
 
-    public List<Business> products;
+    public List<Shop> products;
 
 
-    private SharedPreferences mSharedPreferences;
-    private String mRecentProduct;
+    private SharedPreferences looked;
+    private SharedPreferences.Editor edited;
+    private String recentProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,74 +60,93 @@ public class BuyActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
+        Intent intent = getIntent();
+        String product = intent.getStringExtra("name");
 
+        getProduct(product);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentProduct = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        if (mRecentProduct != null) {
-            getProduct(mRecentProduct);
+        looked = PreferenceManager.getDefaultSharedPreferences(this);
+        recentProduct = looked.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        if (recentProduct != null) {
+            getProduct(recentProduct);
         }
     }
 
-        private void getProduct(String mRecentProduct) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
 
-            Intent intent = getIntent();
-            String location = intent.getStringExtra("item");
+        looked = PreferenceManager.getDefaultSharedPreferences(this);
+        edited = looked.edit();
 
-            YelpApi client = YelpClient.getClient();
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
 
-            Call<Search> call = client.getProducts(location, "products");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
-            call.enqueue(new Callback<Search>() {
-                @Override
-                public void onResponse(Call<Search> call, Response<Search> response) {
-                    hideProgressBar();
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                addToSharedPreferences(query);
+                getProduct(query);
+                return false;
+            }
 
-                    if (response.isSuccessful()) {
-                    products = response.body().getBusinesses();
+            private void addToSharedPreferences(String query) {
+                edited.putString(Constants.PREFERENCES_LOCATION_KEY, query).apply();
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+
+        });
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 
 
-                        buyAdapter=new BuyListAdapter(products, BuyActivity.this);
+    private void getProduct(String product) {
+
+        final YelpService looking = new YelpService();
+        looking.findShops(product, new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+
+                products = looking.processResults(response);
+
+
+                BuyActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        buyAdapter = new BuyListAdapter(products, BuyActivity.this);
                         mRecyclerView.setAdapter(buyAdapter);
 
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(BuyActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
 
-                        showmBuy();
-                    } else {
-                        showUnsuccessfulMessage();
+
                     }
+                });
+            }
 
-                }
+            @Override
+            public void onFailure(Call call, Throwable t) {
 
-                @Override
-                public void onFailure(Call<Search> call, Throwable t) {
-                    hideProgressBar();
-                    showFailureMessage();
-                }
-
-            });
-        }
+            }
+        });
 
 
-        private void showFailureMessage() {
-        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
-        mErrorTextView.setVisibility(View.VISIBLE);
-        }
-
-        private void showUnsuccessfulMessage() {
-        mErrorTextView.setText("Something went wrong. Please try again later");
-        mErrorTextView.setVisibility(View.VISIBLE);
-        }
-
-         private void showmBuy() {
-         mRecyclerView.setVisibility(View.VISIBLE);
-
-
-        }
-
-        private void hideProgressBar() {
-        mProgressBar.setVisibility(View.GONE);
-       }
+//        private void addToSharedPreferences (product){
+//            edited.putString(Constants.PREFERENCES_LOCATION_KEY, product).apply();
+//        }
+    }
 }

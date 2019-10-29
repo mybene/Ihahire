@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ihahire.R;
-import com.example.ihahire.models.Business;
+import com.example.ihahire.models.Shop;
 import com.example.ihahire.ui.BuyDetailActivity;
 
 import org.parceler.Parcels;
@@ -21,11 +21,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyViewHolder> {
-    private List<Business> mBuy;
+    private List<Shop> mBuy;
     private Context mContext;
 
 
-    public BuyListAdapter(List<Business> mBuy, Context mContext) {
+    public BuyListAdapter(List<Shop> mBuy, Context mContext) {
         this.mBuy = mBuy;
         this.mContext = mContext;
     }
@@ -65,7 +65,7 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
 
             itemView.setOnClickListener(this);
         }
-        public void bindBuy(Business buy) {
+        public void bindBuy(Shop buy) {
 
 //            mCategoriesLabel.setText(buy.getCategories().get(0).getTitle());
             rate.setText("Rating: " + buy.getRating() + "/5");

@@ -23,7 +23,7 @@ public class newItemsActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         String name = intent.getStringExtra("name");
-        String shop = intent.getStringExtra("shop");
+        String shop = intent.getStringExtra("Shop");
         String phone = intent.getStringExtra("phone");
 
 

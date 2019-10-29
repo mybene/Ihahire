@@ -65,7 +65,7 @@ public class sellActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(sellActivity.this, "Your product is received!!!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(sellActivity.this, newItemsActivity.class);
              intent.putExtra("name", product);
-             intent.putExtra("shop", shop);
+             intent.putExtra("Shop", shop);
              intent.putExtra("phone", phone);
             startActivity(intent);
 

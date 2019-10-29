@@ -1,8 +1,12 @@
 package com.example.ihahire.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,10 +29,12 @@ public class BuyMainActivity extends AppCompatActivity implements View.OnClickLi
 
     private static final String TAG = BuyMainActivity.class.getSimpleName();
 
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
 
-    //add eventlistener in to saved the search on firebase
+    private SharedPreferences looked;
+    private SharedPreferences.Editor edited;
+    private String rececentProduct;
+
+//    add eventlistener in to saved the search on firebase
     private DatabaseReference searchedProductReference;
     private ValueEventListener searchedProductReferenceListener;
 
@@ -74,12 +80,18 @@ public class BuyMainActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
+        looked = PreferenceManager.getDefaultSharedPreferences(this);
+        edited = looked.edit();
 
         mLookingButton.setOnClickListener(this);
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        return super.onCreateOptionsMenu(menu);
 
+    }
 
 
     @Override
@@ -89,9 +101,9 @@ public class BuyMainActivity extends AppCompatActivity implements View.OnClickLi
 
             saveProductToFirebase(product);
 
-//            if(!(product).equals("")) {
-//                addToSharedPreferences(product);
-//            }
+            if(!(product).equals("")) {
+                addToSharedPreferences(product);
+            }
 
             Intent intent= new Intent(BuyMainActivity.this, BuyActivity.class);
             intent.putExtra("item",product);
@@ -111,9 +123,9 @@ public class BuyMainActivity extends AppCompatActivity implements View.OnClickLi
         searchedProductReference.removeEventListener(searchedProductReferenceListener);
 
     }
-//    private void addToSharedPreferences(String product) {
-//        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, product).apply();
-//    }
+    private void addToSharedPreferences(String product) {
+        edited.putString(Constants.PREFERENCES_LOCATION_KEY, product).apply();
+    }
 }
 
 

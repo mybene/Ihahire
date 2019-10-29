@@ -8,4 +8,6 @@ public class Constants {
     public static final String PREFERENCES_LOCATION_KEY = "product";
     public static final String FIREBASE_CHILD_SEARCHED_LOCATION = "searchedProduct";
 
+    public static final String FIREBASE_CHILD_PRODUCTS = "products";
+    public static final String YELP_LOCATION_QUERY_PARAMETER = "location";
 }
