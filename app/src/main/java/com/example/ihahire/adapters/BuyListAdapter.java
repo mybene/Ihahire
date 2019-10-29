@@ -51,11 +51,11 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
     public class BuyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-        @BindView(R.id.phoneTextView) TextView phone;
+//        @BindView(R.id.phoneTextView) TextView phone;
         @BindView(R.id.ratingTextView) TextView rate;
         @BindView(R.id.placeTextView) TextView shop;
-        @BindView(R.id.priceTextView)TextView price;
-        @BindView(R.id.productNameTextView) TextView mCategoriesLabel;
+//        @BindView(R.id.priceTextView)TextView price;
+//        @BindView(R.id.productNameTextView) TextView mCategoriesLabel;
 
         private Context mContext;
 
@@ -78,9 +78,9 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
 
         public void bindBuy(Business buy) {
             shop.setText(buy.getName());
-            mCategoriesLabel.setText(buy.getCategories().get(0).getTitle());
+//            mCategoriesLabel.setText(buy.getCategories().get(0).getTitle());
             rate.setText("Rating: " + buy.getRating() + "/5");
-            phone.setText(" Call on : "+buy.getPhone());
+//            phone.setText(" Call on : "+buy.getPhone());
             shop.setText("Available at :"+ buy.getLocation());
 
 

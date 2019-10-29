@@ -9,17 +9,21 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/homepage" />
+        android:src="@drawable/main" />
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome on Isange  market"
         android:padding="10sp"
-        android:textSize="30sp"
-        android:layout_margin="80dp"
+        android:text="Welcome on Isange  market"
         android:textColor="@color/colorWhite"
+        android:textSize="30sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
         android:textStyle="italic" />
-
 
     <Button
         android:layout_width="wrap_content"

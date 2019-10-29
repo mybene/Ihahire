@@ -20,13 +20,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/selling2" />
+        android:src="@drawable/choice" />
 
     <Button
         android:id="@+id/buy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
         android:text="BUY"
         android:textColor="@color/colorPurple"
         android:textSize="30dp" />
@@ -35,8 +36,9 @@
         android:id="@+id/sell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="220dp"
         android:layout_centerHorizontal="true"
+        android:layout_below="@id/buy"
         android:text="SELL"
         android:textColor="@color/colorPurple"
         android:textSize="30dp" />
