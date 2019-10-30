@@ -1,23 +1,23 @@
 package com.example.ihahire.ui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ihahire.R;
 import com.example.ihahire.adapters.BuyListAdapter;
+import com.example.ihahire.models.Business;
+import com.example.ihahire.models.Category;
+import com.example.ihahire.models.Search;
 import com.example.ihahire.models.Shop;
-import com.example.ihahire.services.YelpService;
+import com.example.ihahire.networks.YelpApi;
+import com.example.ihahire.networks.YelpClient;
 
 import java.util.List;
 
@@ -33,23 +33,17 @@ public class BuyActivity extends AppCompatActivity {
     public static final String TAG = BuyActivity.class.getSimpleName();
 
 //
-//    @BindView(R.id.itemListView)ListView mItemListView;
-
-    @BindView(R.id.errorTextView)
-    TextView mErrorTextView;
-    @BindView(R.id.progressBar)
-    ProgressBar mProgressBar;
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+    @BindView(R.id.itemListView) ListView mItemListView;
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+    @BindView(R.id.progressBar) ProgressBar mProgressBar;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
 
     private BuyListAdapter buyAdapter;
 
     public List<Shop> products;
 
 
-    private SharedPreferences looked;
-    private SharedPreferences.Editor edited;
-    private String recentProduct;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,92 +53,85 @@ public class BuyActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String product = intent.getStringExtra("name");
-
-        getProduct(product);
-
-        looked = PreferenceManager.getDefaultSharedPreferences(this);
-        recentProduct = looked.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        if (recentProduct != null) {
-            getProduct(recentProduct);
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_search, menu);
-        ButterKnife.bind(this);
-
-        looked = PreferenceManager.getDefaultSharedPreferences(this);
-        edited = looked.edit();
-
-        MenuItem menuItem = menu.findItem(R.id.action_search);
-//        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
-
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                addToSharedPreferences(query);
-//                getProduct(query);
-//                return false;
-//            }
-//
-//            private void addToSharedPreferences(String query) {
-//                edited.putString(Constants.PREFERENCES_LOCATION_KEY, query).apply();
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                return false;
-//            }
-//
-//        });
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
+        String location = intent.getStringExtra("item");
 
 
-    private void getProduct(String product) {
 
-        final YelpService looking = new YelpService();
-        looking.findShops(product, new Callback() {
+        YelpApi client = YelpClient.getClient();
+
+        Call<Search> call = client.getProducts(location, "products");
+
+        call.enqueue(new Callback<Search>() {
             @Override
-            public void onResponse(Call call, Response response) {
+            public void onResponse(Call<Search> call, Response<Search> response) {
+                hideProgressBar();
 
-                products = looking.processResults(response);
+                if (response.isSuccessful()) {
+                    List<Business> productsList = response.body().getBusinesses();
 
+                    String[] products = new String[productsList.size()];
+                    String[] categories = new String[productsList.size()];
 
-                BuyActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        buyAdapter = new BuyListAdapter(products, BuyActivity.this);
-                        mRecyclerView.setAdapter(buyAdapter);
-
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(BuyActivity.this);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);
-
-
+                    for (int i = 0; i < products.length; i++) {
+                        products[i] = productsList.get(i).getName();
                     }
-                });
+
+                    for (int i = 0; i < categories.length; i++) {
+                        Category category = productsList.get(i).getCategories().get(0);
+                        categories[i] = category.getTitle();
+                    }
+
+
+
+//                    mBuy=response.body().getBusinesses();
+//
+//                    buyAdapter= new BuyListAdapter(BuyListActivity.this,mBuy);
+//
+//                    mRecyclerView.setAdapter(buyAdapter);
+//                    RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(BuyListActivity.this);
+//                    mRecyclerView.setLayoutManager(layoutManager);
+//                    mRecyclerView.setHasFixedSize(true);
+
+
+
+
+                    BuyArrayAdapter adapter = new BuyArrayAdapter(BuyActivity.this, android.R.layout.simple_list_item_1, products, categories);
+                    mItemListView.setAdapter(adapter);
+                    showmBuy();
+
+                } else {
+                    showUnsuccessfulMessage();
+                }
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
-
+            public void onFailure(Call<Search> call, Throwable t) {
+                hideProgressBar();
+                showFailureMessage();
             }
+
         });
 
 
-//        private void addToSharedPreferences (product){
-//            edited.putString(Constants.PREFERENCES_LOCATION_KEY, product).apply();
-//        }
+    }
+
+    private void showFailureMessage() {
+        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showmBuy() {
+        mItemListView.setVisibility(View.VISIBLE);
+
+
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
     }
 }

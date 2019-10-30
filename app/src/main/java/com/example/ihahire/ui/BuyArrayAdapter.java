@@ -13,8 +13,8 @@ public class BuyArrayAdapter  extends ArrayAdapter {
     private String[] images;
 
 
-    public BuyArrayAdapter(@NonNull Context context, int resource, int textViewResourceId, Context display, String[] items, String[] images) {
-        super(context, resource, textViewResourceId);
+    public BuyArrayAdapter(@NonNull Context context, int resource, String[] items, String[] images) {
+        super(context, resource);
         this.display = display;
         this.items = items;
         this.images = images;
