@@ -34,7 +34,7 @@ public class YelpService {
                 .build();
 
         Call call = client.newCall(request);
-        call.enqueue((okhttp3.Callback) callback);
+//        call.enqueue((okhttp3.Callback) callback);
     }
 
     public List<Shop> processResults(Response response){

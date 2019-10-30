@@ -6,14 +6,6 @@
     tools:context=".ui.choiceActivity">
 
 
-    <!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/colorPrimaryDark"-->
-<!--        android:text="Choose between BuyMainActivity and sellActivity"-->
-<!--        android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
-<!--        android:textStyle="bold" />-->
-
 
     <ImageView
         android:id="@+id/img2"
@@ -26,7 +18,8 @@
         android:id="@+id/buy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
         android:padding="30dp"
         android:text="BUY"
         android:textColor="@color/colorAccent"
@@ -36,11 +29,12 @@
         android:id="@+id/sell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:padding="30dp"
+        android:layout_below="@+id/buy"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:padding="30dp"
         android:text="SELL"
         android:textColor="@color/colorAccent"
-        android:textSize="30dp"/>
+        android:textSize="30dp" />
 
 </RelativeLayout>

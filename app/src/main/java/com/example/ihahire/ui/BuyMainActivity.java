@@ -107,9 +107,6 @@ public class BuyMainActivity extends AppCompatActivity implements View.OnClickLi
 
             saveProductToFirebase(product);
 
-            if(!(product).equals("")) {
-                addToSharedPreferences(product);
-            }
 
             Intent intent= new Intent(BuyMainActivity.this, BuyActivity.class);
             intent.putExtra("item",product);
@@ -129,9 +126,7 @@ public class BuyMainActivity extends AppCompatActivity implements View.OnClickLi
         searchedProductReference.removeEventListener(searchedProductReferenceListener);
 
     }
-    private void addToSharedPreferences(String product) {
-        edited.putString(Constants.PREFERENCES_LOCATION_KEY, product).apply();
-    }
+
 }
 
 

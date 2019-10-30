@@ -8,11 +8,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ProgressBar;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -82,27 +80,27 @@ public class BuyActivity extends AppCompatActivity {
         edited = looked.edit();
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+//        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                addToSharedPreferences(query);
-                getProduct(query);
-                return false;
-            }
-
-            private void addToSharedPreferences(String query) {
-                edited.putString(Constants.PREFERENCES_LOCATION_KEY, query).apply();
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-
-        });
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                addToSharedPreferences(query);
+//                getProduct(query);
+//                return false;
+//            }
+//
+//            private void addToSharedPreferences(String query) {
+//                edited.putString(Constants.PREFERENCES_LOCATION_KEY, query).apply();
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//
+//        });
         return true;
     }
 

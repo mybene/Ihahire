@@ -23,13 +23,13 @@ public class sellActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = sellActivity.class.getSimpleName();
 
   @BindView(R.id.name) EditText mName;
-  @BindView(R.id.place) EditText shop;
+  @BindView(R.id.place) EditText shop1;
   @BindView(R.id.phone) EditText contact;
   @BindView(R.id.selling) Button mSelling;
 
 
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
+    private SharedPreferences sharedProduct;
+    private SharedPreferences.Editor edited;
 
 
     @Override
@@ -39,8 +39,8 @@ public class sellActivity extends AppCompatActivity implements View.OnClickListe
 
         ButterKnife.bind(this);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
+        sharedProduct = PreferenceManager.getDefaultSharedPreferences(this);
+        edited = sharedProduct.edit();
 
 
         mSelling.setOnClickListener(this);
@@ -50,11 +50,10 @@ public class sellActivity extends AppCompatActivity implements View.OnClickListe
 
 
     @Override
-    public   void onClick(View mSelling) {
-
+    public  void onClick(View mSelling) {
 
             String product = mName.getText().toString();
-            String shop = mName.getText().toString();
+            String shop = shop1.getText().toString();
             String phone = contact.getText().toString();
 
             if((!(product).equals(""))&& (!(shop).equals(""))&&(!(phone).equals(""))){
@@ -73,7 +72,7 @@ public class sellActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addToSharedPreferences(String product){
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, product).apply();
+        edited.putString(Constants.PREFERENCES_LOCATION_KEY, product).apply();
     }
 }
 
