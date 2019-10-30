@@ -4,22 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.newItems">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/home2"
-        android:id="@+id/img3"
-        android:scaleType="fitStart"/>
 
-    <TextView
-        android:id="@+id/articles"
+    <!--    <TextView-->
+<!--        android:id="@+id/articles"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="210dp"-->
+<!--        android:text="New products"-->
+<!--        android:textSize="30dp"-->
+<!--        android:textColor="@color/colorPurple"-->
+<!--        android:layout_centerHorizontal="true"/>-->
+    <ImageView
+        android:id="@+id/img3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
-        android:text="New products"
-        android:textSize="30dp"
-        android:textColor="@color/colorPurple"
-        android:layout_centerHorizontal="true"/>
+        android:scaleType="fitCenter"
+        android:src="@drawable/detail" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
