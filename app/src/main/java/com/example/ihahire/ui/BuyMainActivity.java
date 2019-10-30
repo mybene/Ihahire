@@ -32,7 +32,7 @@ public class BuyMainActivity extends AppCompatActivity implements View.OnClickLi
 
     private SharedPreferences looked;
     private SharedPreferences.Editor edited;
-    private String rececentProduct;
+    private String recentProduct;
 
 //    add eventlistener in to saved the search on firebase
     private DatabaseReference searchedProductReference;
@@ -43,11 +43,10 @@ public class BuyMainActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
-    private String[] products = new String[]{"Protex", "CarrotLigth", "Whol-WHeat Bread", "White chocolate", "Printer HP", "Baby Daiper", "Protex",
-            "CarrotLigth","Whol-WHeat Bread", "White chocolate", "Printer HP", "Baby Daiper"};
+    private String[] products = new String[]{"straberry bavarois","lemon cake","banana cake","chocolate moka cake","cheese cake","fruits tarte","biche noel vanilla","biche noel choco","madelaine"};
 
     private String[] shops = new String[]{"Frulep", "Simba Supermarket", "La Galette", "KIME Supermarket", "German Butchery", "Meru", "Frulep", "Simba Supermarket", "La Galette",
-            "KIME Supermarket", "German Butchery", "Meru"};
+            "KIME Supermarket"};
 
 
     @Override
@@ -81,10 +80,17 @@ public class BuyMainActivity extends AppCompatActivity implements View.OnClickLi
 
 
         looked = PreferenceManager.getDefaultSharedPreferences(this);
-        edited = looked.edit();
+        recentProduct = looked.getString(Constants.PREFERENCES_LOCATION_KEY,null);
+        if(recentProduct!=null){
+       getProducts(recentProduct);}
 
         mLookingButton.setOnClickListener(this);
     }
+
+    private void getProducts(String recentProduct) {
+
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

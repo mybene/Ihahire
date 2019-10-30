@@ -36,10 +36,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
 
-    @BindView(R.id.input) EditText nameOrg;
-    @BindView(R.id.input1)EditText emailOrg;
-    @BindView(R.id.input2)EditText passwordOrg;
-    @BindView(R.id.input3)EditText confirmedPassword;
+    @BindView(R.id.sinput) EditText nameOrg;
+    @BindView(R.id.sinput1)EditText emailOrg;
+    @BindView(R.id.sinput2)EditText passwordOrg;
+    @BindView(R.id.sinput3)EditText confirmedPassword;
     @BindView(R.id.create) Button createAccount;
     @BindView(R.id.loginTextView) TextView login;
 
@@ -148,19 +148,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        authorized.addAuthStateListener(authorizedListener);
-    }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (authorizedListener != null) {
-            authorized.removeAuthStateListener(authorizedListener);
-        }
-    }
 
     private boolean isValidEmail(String email) {
         boolean isGoodEmail =
@@ -208,5 +196,19 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     }
 
                 });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        authorized.addAuthStateListener(authorizedListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (authorizedListener != null) {
+            authorized.removeAuthStateListener(authorizedListener);
+        }
     }
 }

@@ -16,12 +16,13 @@
         android:id="@+id/linearLayout">
 
         <EditText
-            android:id="@+id/input"
+            android:id="@+id/sinput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:hint="Name"
-            android:nextFocusDown="@+id/input2"
+            android:nextFocusDown="@+id/sinput2"
+
             android:padding="10dp"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
@@ -29,13 +30,13 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/input1"
+            android:id="@+id/sinput1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:nextFocusDown="@+id/input2"
+            android:nextFocusDown="@+id/sinput2"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
@@ -43,13 +44,13 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/input2"
+            android:id="@+id/sinput2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:hint="Password"
             android:inputType="textPassword"
-            android:nextFocusDown="@+id/input2"
+            android:nextFocusDown="@+id/sinput2"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
@@ -57,13 +58,13 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/input3"
+            android:id="@+id/sinput3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:hint="Confirm Password"
             android:inputType="textPassword"
-            android:nextFocusDown="@+id/input2"
+            android:nextFocusDown="@+id/sinput2"
             android:padding="10dp"
             android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"

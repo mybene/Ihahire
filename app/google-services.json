@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "282724077326",
-    "firebase_url": "https://ihahire-f6005.firebaseio.com",
-    "project_id": "ihahire-f6005",
-    "storage_bucket": "ihahire-f6005.appspot.com"
+    "project_number": "580876900220",
+    "firebase_url": "https://ihahire-236c9.firebaseio.com",
+    "project_id": "ihahire-236c9",
+    "storage_bucket": "ihahire-236c9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:282724077326:android:86d0a9a05e09ee8508115f",
+        "mobilesdk_app_id": "1:580876900220:android:0fe8fd5e64434500f9b6f9",
         "android_client_info": {
           "package_name": "com.example.ihahire"
         }
       },
       "oauth_client": [
         {
-          "client_id": "282724077326-eqveojjkpt9potdts977nk0at8dmmg42.apps.googleusercontent.com",
+          "client_id": "580876900220-vccciprjh96r265k82m92kbq487cf82i.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.ihahire",
@@ -23,57 +23,20 @@
           }
         },
         {
-          "client_id": "282724077326-5mba4l6bqemtkf1i66i18uis4ai09djf.apps.googleusercontent.com",
+          "client_id": "580876900220-tikp1jlm8cromg1m2l10ilipttnd7jrn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCJsd3NBxSoWAiKMBq8SrMwsSlHdpwx5LE"
+          "current_key": "AIzaSyBlTbFfvvVjYrJRl0Gkcm7XgzVtZIP5t54"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "282724077326-5mba4l6bqemtkf1i66i18uis4ai09djf.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:282724077326:android:c2dac25ae4ab292c08115f",
-        "android_client_info": {
-          "package_name": "com.example.ihahire2"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "282724077326-3vqcp8c52u4p3arng8s4cj9b6ensukab.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.ihahire2",
-            "certificate_hash": "9f9db6f3ce82c4e8307ac0790db93e34739f5c0d"
-          }
-        },
-        {
-          "client_id": "282724077326-5mba4l6bqemtkf1i66i18uis4ai09djf.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCJsd3NBxSoWAiKMBq8SrMwsSlHdpwx5LE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "282724077326-5mba4l6bqemtkf1i66i18uis4ai09djf.apps.googleusercontent.com",
+              "client_id": "580876900220-tikp1jlm8cromg1m2l10ilipttnd7jrn.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

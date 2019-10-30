@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     public static final String TAG = LoginActivity.class.getSimpleName();
 
+
+
     @BindView(R.id.createAccount) TextView registration;
     @BindView(R.id.input) EditText emailOrg;
     @BindView(R.id.input1)EditText passwordlOrg;
@@ -58,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                FirebaseUser user = firebaseAuth.getCurrentUser();
                if (user != null) {
-                   Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                   Intent intent = new Intent(LoginActivity.this, choiceActivity.class);
                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                    startActivity(intent);
                    finish();
@@ -115,9 +117,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         mAuthProgressDialog.dismiss();
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (!task.isSuccessful()) {
-                            Log.w(TAG, "signInWithEmail", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+
+                            Intent intent=new Intent(LoginActivity.this,choiceActivity.class);
+                            startActivity(intent);
                         }
                     }
                 });
