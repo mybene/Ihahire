@@ -25,12 +25,12 @@
         <activity android:name=".ui.newItemsActivity" />
         <activity android:name=".ui.sellActivity" />
         <activity android:name=".ui.BuyMainActivity" />
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.ihahire.ui.BuyMainActivity" />
+
         <activity android:name=".ui.choiceActivity" />
         <activity android:name=".ui.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ihahire.ui.BuyMainActivity" />
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
