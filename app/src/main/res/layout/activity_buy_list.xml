@@ -1,44 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:id="@+id/picture"
+        android:src="@drawable/buying"
+        android:scaleType="centerCrop"/>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#ffffff"
         android:orientation="vertical"
-        android:scrollbarTrackVertical="@color/colorAccent">
+        android:padding="10dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+         <TextView
+             android:id="@+id/shopName"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:text="Shop Name"
+             android:textSize="30dp"
+             android:textStyle="italic"
+             android:textColor="@color/colorAccent"/>
+
+        <TextView
+             android:id="@+id/specialite"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:text="Speciality"
+             android:layout_below="@id/shopName"
+             android:textColor="@color/colorPrimaryText"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentStart="true"/>
+
+        <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:visibility="gone"
-        android:layout_alignParentRight="true" />
+        android:layout_height="wrap_content">
 
+            <TextView
+            android:id="@+id/ratingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Rating"
+             android:textColor="@color/colorGreen"/>
 
-    <ListView
-        android:id="@+id/itemListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:visibility="gone"
-        android:layout_alignParentRight="true"
-        android:footerDividersEnabled="true"/>
+       </RelativeLayout>
+    </LinearLayout>
 
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
-
-
-    <TextView
-        android:id="@+id/errorTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="16dp"
-        android:visibility="gone" />
-</RelativeLayout>

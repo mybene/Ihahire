@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ihahire.Constants;
 import com.example.ihahire.R;
 
 public class newItemsActivity extends AppCompatActivity {

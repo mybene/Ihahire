@@ -1,6 +1,8 @@
 package com.example.ihahire.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -25,15 +27,14 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class BuyDetailFragment extends Fragment {
-    @BindView(R.id.marketImageView)
-    ImageView marketImage;
+public class BuyDetailFragment extends Fragment implements View.OnClickListener {
+
+    @BindView(R.id.brandImg) ImageView marketImage;
     @BindView(R.id.phoneTextView) TextView phone;
     @BindView(R.id.ratingTextView) TextView rate;
-    @BindView(R.id.placeTextView) TextView shop;
+    @BindView(R.id.shopName) TextView shop;
     @BindView(R.id.addressTextView)TextView place;
-    @BindView(R.id.priceTextView)TextView price;
-    @BindView(R.id.productNameTextView) TextView mCategoriesLabel;
+    @BindView(R.id.itemName) TextView mCategoriesLabel;
     @BindView(R.id.bookedProductsButton) Button save;
 
 
@@ -79,9 +80,12 @@ public class BuyDetailFragment extends Fragment {
 
         mCategoriesLabel.setText(TextUtils.join(", ", categories));
         rate.setText(Double.toString(mBuy.getRating())+"/5");
-        price.setText(mBuy.getPrice().toString().toUpperCase());
         phone.setText(mBuy.getPhone());
         shop.setText(mBuy.getLocation().toString());
+
+        shop.setOnClickListener(this);
+        place.setOnClickListener(this);
+        phone.setOnClickListener(this);
 
         return  view;
 
@@ -90,10 +94,22 @@ public class BuyDetailFragment extends Fragment {
 
     @Override
     public String toString() {
-        return String.format("%s, %s, %s %s", this.shop,this.rate, this.price,  this.phone,this.mCategoriesLabel,this.place);
+        return String.format("%s, %s, %s %s", this.shop,this.rate, this.phone,this.mCategoriesLabel,this.place);
     }
 
 
+    @Override
+    public void onClick(View v) {
+        if(v==shop){
+            Intent mapIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + mBuy.getCoordinates().getLatitude()+" , "+mBuy.getCoordinates().getLongitude()+"?q=("+mBuy.getName()+" ) "));
+            startActivity(mapIntent);
+        }
+        if(v==place){
+            Intent phoneIntent= new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+mBuy.getPhone()));
+            startActivity(phoneIntent);
+        }
+
+    }
 }
 
 

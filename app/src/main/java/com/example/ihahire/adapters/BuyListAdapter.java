@@ -5,13 +5,16 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ihahire.R;
-import com.example.ihahire.models.Shop;
+import com.example.ihahire.models.Business;
 import com.example.ihahire.ui.BuyDetailActivity;
+import com.example.ihahire.ui.BuyListActivity;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -21,18 +24,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyViewHolder> {
-    private List<Shop> mBuy;
+//    private List<Shop> mBuy;
     private Context mContext;
+    private List<Business>mBuy;
 
 
-    public BuyListAdapter(List<Shop> mBuy, Context mContext) {
-        this.mBuy = mBuy;
-        this.mContext = mContext;
+    public BuyListAdapter(BuyListActivity mBuy, List<Business> mContext) {
+        this.mBuy = (List<Business>) mBuy;
+        this.mContext = (Context) mContext;
     }
 
     @Override
     public BuyListAdapter.BuyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.about_to_buy, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_buy_list, parent, false);
         BuyViewHolder viewHolder = new BuyViewHolder(view);
         return viewHolder;
     }
@@ -51,10 +55,9 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
 
 
         @BindView(R.id.ratingTextView) TextView rate;
-        @BindView(R.id.placeTextView) TextView shop;
-//        @BindView(R.id.priceTextView)TextView price;
-//        @BindView(R.id.itemListView) TextView mCategoriesLabel;
-
+        @BindView(R.id.shopName) TextView shop;
+        @BindView(R.id.specialite)TextView specilaity;
+        @BindView(R.id.picture) ImageView shopImage;
         private Context mContext;
 
         public BuyViewHolder(View itemView) {
@@ -65,11 +68,11 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
 
             itemView.setOnClickListener(this);
         }
-        public void bindBuy(Shop buy) {
-
-//            mCategoriesLabel.setText(buy.getCategories().get(0).getTitle());
+        public void bindBuy(Business buy) {
+            Picasso.get().load(buy.getImageUrl()).into(shopImage);
+            specilaity.setText(buy.getCategories().get(0).getTitle());
             rate.setText("Rating: " + buy.getRating() + "/5");
-            shop.setText("Available at :"+ buy.getLocation());
+            shop.setText("Available at :"+ buy.getName());
 
         }
 

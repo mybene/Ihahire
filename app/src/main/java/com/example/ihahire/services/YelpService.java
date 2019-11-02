@@ -1,7 +1,7 @@
 package com.example.ihahire.services;
 
 import com.example.ihahire.models.Shop;
-import com.example.ihahire.ui.Constants;
+import com.example.ihahire.Constants;
 
 import org.json.JSONArray;
 import org.json.JSONException;

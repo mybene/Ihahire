@@ -3,19 +3,21 @@ package com.example.ihahire.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ihahire.R;
 import com.example.ihahire.models.Shop;
-import com.example.ihahire.ui.BuyActivity;
-import com.example.ihahire.ui.Constants;
+import com.example.ihahire.ui.BuyListActivity;
+import com.example.ihahire.Constants;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -34,15 +36,15 @@ public class FirebaseShopViewHolder extends RecyclerView.ViewHolder implements V
     }
 
     public void bindShop(Shop product) {
-//        ImageView shopPicture = (ImageView) seen.findViewById(R.id.shopImageView);
-        TextView productName= (TextView) seen.findViewById(R.id.productNameTextView);
-//        TextView shop = (TextView) seen.findViewById(R.id.shop);
+        ImageView shopPicture = (ImageView) seen.findViewById(R.id.brandImg);
+        TextView productName= (TextView) seen.findViewById(R.id.itemName);
+        TextView shop = (TextView) seen.findViewById(R.id.PlaceTextView);
         TextView rate = (TextView) seen.findViewById(R.id.ratingTextView);
 
-//        Picasso.get().load(product.getImageUrl()).into(shopPicture);
+        Picasso.get().load(product.getImageUrl()).into(shopPicture);
 
         productName.setText(product.getName());
-//        shop.setText(product.getCategories().get(0));
+        shop.setText(product.getCategories().get(0));
         rate.setText("Rating: " + product.getRating() + "/5");
     }
 
@@ -60,7 +62,7 @@ public class FirebaseShopViewHolder extends RecyclerView.ViewHolder implements V
 
                 int itemPosition = getLayoutPosition();
 
-                Intent intent = new Intent(mContext, BuyActivity.class);
+                Intent intent = new Intent(mContext, BuyListActivity.class);
                 intent.putExtra("position", itemPosition + "");
                 intent.putExtra("products", Parcels.wrap(products));
 

@@ -11,11 +11,11 @@
         android:background="@color/colorPrimary">
 
         <ImageView
-            android:id="@+id/marketImageView"
+            android:id="@+id/brandImg"
             android:layout_width="match_parent"
             android:layout_height="248dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/display" />
+            android:src="@drawable/main" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Product Name"
-                android:id="@+id/productNameTextView"
+                android:id="@+id/itemName"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textSize="20sp"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="4.5/5"
                 android:id="@+id/ratingTextView"
-                android:layout_alignTop="@+id/productNameTextView"
+                android:layout_alignTop="@+id/itemName"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:textColor="@color/colorAccent"

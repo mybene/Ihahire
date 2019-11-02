@@ -1,69 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ListView
-        android:id="@+id/itemListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/placeTextView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:layout_alignParentRight="true" />
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbarTrackVertical="@color/colorAccent">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/placeTextView"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
         android:visibility="gone"
         android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/productTitle"
+        android:visibility="gone"
+        android:id="@+id/shopTitle"
+        android:layout_centerHorizontal="true"/>
+
+
+    <ListView
+        android:id="@+id/productTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:footerDividersEnabled="true"/>
+
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
-
-    <TextView
-        android:id="@+id/placeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="The product is available in above shops" />
-<!--    <TextView-->
-<!--        android:id="@+id/phoneTextView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:text="The product is available on this Shop"-->
-<!--        android:visibility="gone" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/ratingTextView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:text="The product is available on this Shop"-->
-<!--        android:visibility="gone" />-->
-<!--    <TextView-->
-<!--        android:id="@+id/priceTextView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:text="The product is available on this Shop"-->
-<!--        android:visibility="gone" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/productNameTextView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:text="The product is available on this Shop"-->
-<!--        android:visibility="gone" />-->
 
 
     <TextView
@@ -73,7 +48,4 @@
         android:layout_centerInParent="true"
         android:layout_margin="16dp"
         android:visibility="gone" />
-
-
-
 </RelativeLayout>

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ihahire.Constants;
 import com.example.ihahire.R;
 import com.example.ihahire.adapters.FirebaseShopViewHolder;
 import com.example.ihahire.models.Shop;
