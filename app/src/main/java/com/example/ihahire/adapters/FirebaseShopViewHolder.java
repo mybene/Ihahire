@@ -8,10 +8,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ihahire.Constants;
 import com.example.ihahire.R;
 import com.example.ihahire.models.Shop;
-import com.example.ihahire.ui.BuyListActivity;
-import com.example.ihahire.Constants;
+import com.example.ihahire.ui.BuyDetailActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,8 +51,8 @@ public class FirebaseShopViewHolder extends RecyclerView.ViewHolder implements V
     @Override
     public void onClick(View view) {
         final ArrayList<Shop> products = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PRODUCTS);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference cakeref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PRODUCTS);
+        cakeref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -62,7 +62,7 @@ public class FirebaseShopViewHolder extends RecyclerView.ViewHolder implements V
 
                 int itemPosition = getLayoutPosition();
 
-                Intent intent = new Intent(mContext, BuyListActivity.class);
+                Intent intent = new Intent(mContext, BuyDetailActivity.class);
                 intent.putExtra("position", itemPosition + "");
                 intent.putExtra("products", Parcels.wrap(products));
 

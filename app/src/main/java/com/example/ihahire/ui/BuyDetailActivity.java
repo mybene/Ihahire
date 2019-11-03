@@ -11,6 +11,7 @@ import com.example.ihahire.models.Business;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -20,7 +21,7 @@ public class BuyDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.vpPager) ViewPager mViewPager;
     private BuyPagerAdapter adapterViewPager;
-    List<Business> products;
+    List<Business>products=new ArrayList<>();
 
     private int FragmentPagerAdapter;
 

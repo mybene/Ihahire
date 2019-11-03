@@ -32,9 +32,8 @@ public class SavedShopListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buy_list);
+        setContentView(R.layout.activity_buy);
         ButterKnife.bind(this);
         
         shopReference= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PRODUCTS);

@@ -39,4 +39,17 @@
         android:layout_marginStart="130dp"
         android:text="Search"
         android:textColor="@color/colorwhite" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="saved Products"
+        android:id="@+id/savedProduct"
+        android:layout_below="@+id/lookingButton"
+        android:background="@color/colorGreen"
+        android:textColor="@color/colorTextIcons"
+        android:visibility="visible"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="80dp"
+        android:layout_marginLeft="80dp"/>
 </RelativeLayout>

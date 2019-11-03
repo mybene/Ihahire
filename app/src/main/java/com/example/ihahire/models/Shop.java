@@ -1,10 +1,14 @@
 package com.example.ihahire.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
+
 public class Shop {
-    String name;
+     String name;
     String phone;
     String website;
     double rating;
@@ -14,10 +18,9 @@ public class Shop {
     double longitude;
     List<String> categories = new ArrayList<>();
 
-    public Shop() {
-    }
+    public Shop() {}
 
-    public Shop(String name, String phone, String website, double rating, String imageUrl, List<String> address, double latitude, double longitude, ArrayList<String> categories) {
+    public Shop(String name, String phone, String website, double rating, String imageUrl, ArrayList<String> address, double latitude, double longitude, ArrayList<String> categories) {
         this.name = name;
         this.phone = phone;
         this.website = website;
@@ -69,9 +72,4 @@ public class Shop {
         String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
         return largeImageUrl;
     }
-
-    public String getLocation() {
-        return null;
-    }
 }
-

@@ -39,6 +39,10 @@ public class BuyListActivity extends AppCompatActivity  {
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+//    private SharedPreferences looked;
+//    private SharedPreferences.Editor edited;
+//    private String recentProducts;
+
 
     private BuyListAdapter buyAdapter;
 
@@ -53,49 +57,42 @@ public class BuyListActivity extends AppCompatActivity  {
         ButterKnife.bind(this);
 
 
-//        productList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String product = ((TextView) view).getText().toString();
-//                Toast.makeText(BuyListActivity.this, product, Toast.LENGTH_LONG).show();
-//            }
-//        });
-
-
         Intent intent = getIntent();
         String product = intent.getStringExtra("product");
-//        shopList.setText("The lis of shop have this cake " + product);
 
+        YelpApi client= YelpClient.getClient();
 
-        YelpApi client = YelpClient.getClient();
+        Call<Search>call=client.getShops(product,"products");
 
-        Call<Search> call = client.getProducts(product, "products");
-        call.enqueue(new Callback<Search>() {
-            @Override
-            public void onResponse(Call<Search> call, Response<Search> response) {
-                hideProgressBar();
+        call.enqueue(new Callback<Search>(){
+        @Override
+            public void onResponse(Call<Search>call,Response<Search>response){
+            hideProgressBar();
 
-                if (response.isSuccessful()) {
+            if(response.isSuccessful()){
+                products=response.body().getBusinesses();
+                buyAdapter=new BuyListAdapter(BuyListActivity.this,products);
+                mRecyclerView.setAdapter(buyAdapter);
 
-                    products = response.body().getBusinesses();
-                    buyAdapter = new BuyListAdapter(BuyListActivity.this,products);
-                    mRecyclerView.setAdapter(buyAdapter);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager((BuyListActivity.this));
-                    mRecyclerView.setLayoutManager(layoutManager);
-                    mRecyclerView.setHasFixedSize(true);
+                RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(BuyListActivity.this);
+                mRecyclerView.setLayoutManager(layoutManager);
+                mRecyclerView.setHasFixedSize(true);
 
-                    getShops();
-                } else {
-                    showFailureMessage();
-                }
+                showShops();
+            }
+            else {
+                showUnsuccessfulMessage();
             }
 
+        }
 
-            @Override
-            public void onFailure(Call<Search> call, Throwable t) {
+        @Override
+        public void onFailure(Call<Search> call, Throwable t) {
                 hideProgressBar();
                 showFailureMessage();
+
             }
+
 
         });
 
@@ -111,92 +108,13 @@ public class BuyListActivity extends AppCompatActivity  {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
-    private void getShops() {
+    private void showShops() {
         mRecyclerView.setVisibility(View.VISIBLE);
-
     }
 
     private void hideProgressBar() {
         mProgressBar.setVisibility(View.GONE);
     }
+
 }
 
-
-
-//        YelpApi client = YelpClient.getClient();
-//
-//        Call<Search> call = client.getProducts(location, "products");
-//
-//        call.enqueue(new Callback<Search>() {
-//            @Override
-//            public void onResponse(Call<Search> call, Response<Search> response) {
-//                hideProgressBar();
-//
-//                if (response.isSuccessful()) {
-//                    List<Business> productsList = response.body().getBusinesses();
-//
-//                    String[] products = new String[productsList.size()];
-//                    String[] categories = new String[productsList.size()];
-//
-//                    for (int i = 0; i < products.length; i++) {
-//                        products[i] = productsList.get(i).getName();
-//                    }
-//
-//                    for (int i = 0; i < categories.length; i++) {
-//                        Category category = productsList.get(i).getCategories().get(0);
-//                        categories[i] = category.getTitle();
-//                    }
-//
-//
-//
-//                    mBuy=response.body().getBusinesses();
-//
-//                    buyAdapter= new BuyListAdapter(BuyListActivity.this,mBuy);
-//
-//                    mRecyclerView.setAdapter(buyAdapter);
-//                    RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(BuyListActivity.this);
-//                    mRecyclerView.setLayoutManager(layoutManager);
-//                    mRecyclerView.setHasFixedSize(true);
-//
-//
-
-//
-//                    BuyArrayAdapter adapter = new BuyArrayAdapter(BuyListActivity.this, android.R.layout.simple_list_item_1, products, categories);
-//                    mItemListView.setAdapter(adapter);
-//                    showmBuy();
-//
-//                } else {
-//                    showUnsuccessfulMessage();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Search> call, Throwable t) {
-//                hideProgressBar();
-//                showFailureMessage();
-//            }
-
-
-
-
-//    }
-//
-//    private void showFailureMessage() {
-//        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
-//        mErrorTextView.setVisibility(View.VISIBLE);
-//    }
-//
-//    private void showUnsuccessfulMessage() {
-//        mErrorTextView.setText("Something went wrong. Please try again later");
-//        mErrorTextView.setVisibility(View.VISIBLE);
-//    }
-//
-//    private void showmBuy() {
-//        mItemListView.setVisibility(View.VISIBLE);
-//
-//
-//    }
-//
-//    private void hideProgressBar() {
-//        mProgressBar.setVisibility(View.GONE);
-//    }
