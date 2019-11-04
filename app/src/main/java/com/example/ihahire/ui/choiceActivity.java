@@ -7,7 +7,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,8 +22,8 @@ import butterknife.ButterKnife;
 
 
 public class choiceActivity extends AppCompatActivity {
-    @BindView(R.id.buy) Button mBuy;
-    @BindView(R.id.sell) Button mSell;
+   @BindView(R.id.buy) Button mBuy;
+   @BindView(R.id.sell) Button mSell;
 
     private SharedPreferences looked;
     private SharedPreferences.Editor edited;
@@ -32,7 +35,14 @@ public class choiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice);
 
+
       ButterKnife.bind(this);
+
+
+        ImageView choice=(ImageView)findViewById(R.id.img2);
+        Animation animation= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.myanimation);
+        choice.startAnimation(animation);
+
 
         mBuy.setOnClickListener(new View.OnClickListener() {
 
@@ -40,6 +50,7 @@ public class choiceActivity extends AppCompatActivity {
            public void onClick(View v) {
                Intent intent = new Intent(choiceActivity.this, BuyMainActivity.class);
                startActivity(intent);
+
 
            }
        });
@@ -49,10 +60,14 @@ public class choiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent1=new Intent(choiceActivity.this, sellActivity.class);
                 startActivity(intent1);
+
+
             }
         });
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

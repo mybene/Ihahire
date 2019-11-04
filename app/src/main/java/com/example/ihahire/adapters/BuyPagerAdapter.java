@@ -4,16 +4,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.ihahire.models.Business;
+import com.example.ihahire.models.Shop;
 import com.example.ihahire.ui.BuyDetailFragment;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class BuyPagerAdapter extends FragmentPagerAdapter {
 
-    private List<Business> products;
+    private ArrayList<Shop> products;
 
-    public BuyPagerAdapter(FragmentManager fm, List<Business> products) {
+    public BuyPagerAdapter(FragmentManager fm, ArrayList<Shop> products) {
         super(fm);
         this.products = products;
     }

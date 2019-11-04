@@ -11,14 +11,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ihahire.R;
-import com.example.ihahire.models.Business;
+import com.example.ihahire.models.Shop;
 import com.example.ihahire.ui.BuyDetailActivity;
-import com.example.ihahire.ui.BuyListActivity;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,12 +25,12 @@ import butterknife.ButterKnife;
 public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyViewHolder> {
 //    private List<Shop> mBuy;
     private Context mContext;
-    private List<Business>mBuy;
+    private ArrayList<Shop>mBuy=new ArrayList<>();
 
 
-    public BuyListAdapter(BuyListActivity mBuy, List<Business> mContext) {
-        this.mBuy = (List<Business>) mBuy;
-        this.mContext = (Context) mContext;
+    public BuyListAdapter(Context mContext, ArrayList<Shop> mBuy) {
+        this.mContext = mContext;
+        this.mBuy = mBuy;
     }
 
     @Override
@@ -68,9 +67,9 @@ public class BuyListAdapter  extends RecyclerView.Adapter<BuyListAdapter.BuyView
 
             itemView.setOnClickListener(this);
         }
-        public void bindBuy(Business buy) {
+        public void bindBuy(Shop buy) {
             Picasso.get().load(buy.getImageUrl()).into(shopImage);
-            specilaity.setText(buy.getCategories().get(0).getTitle());
+            specilaity.setText(buy.getCategories().get(0));
             rate.setText("Rating: " + buy.getRating() + "/5");
             shop.setText("Available at :"+ buy.getName());
 

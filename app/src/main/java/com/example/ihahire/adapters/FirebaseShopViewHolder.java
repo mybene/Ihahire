@@ -12,6 +12,7 @@ import com.example.ihahire.Constants;
 import com.example.ihahire.R;
 import com.example.ihahire.models.Shop;
 import com.example.ihahire.ui.BuyDetailActivity;
+import com.example.ihahire.util.ItemTouchHelperViewHolder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,16 +24,20 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseShopViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseShopViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
+
+
 
     View seen;
     Context mContext;
+    public ImageView shopPicture;
+
+
 
     public FirebaseShopViewHolder(View itemView) {
         super(itemView);
         seen = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindShop(Shop product) {
@@ -40,6 +45,7 @@ public class FirebaseShopViewHolder extends RecyclerView.ViewHolder implements V
         TextView productName= (TextView) seen.findViewById(R.id.itemName);
         TextView shop = (TextView) seen.findViewById(R.id.PlaceTextView);
         TextView rate = (TextView) seen.findViewById(R.id.ratingTextView);
+
 
         Picasso.get().load(product.getImageUrl()).into(shopPicture);
 
@@ -49,30 +55,22 @@ public class FirebaseShopViewHolder extends RecyclerView.ViewHolder implements V
     }
 
     @Override
-    public void onClick(View view) {
-        final ArrayList<Shop> products = new ArrayList<>();
-        DatabaseReference cakeref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PRODUCTS);
-        cakeref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    products.add(snapshot.getValue(Shop.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, BuyDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("products", Parcels.wrap(products));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+    public void onItemSelected() {
+        itemView.animate()
+                .alpha(0.7f)
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(500);
     }
+
+    @Override
+    public void onItemClear() {
+        itemView.animate()
+                .alpha(1f)
+                .scaleX(1f)
+                .scaleY(1f);
+    }
+
+
 
 }

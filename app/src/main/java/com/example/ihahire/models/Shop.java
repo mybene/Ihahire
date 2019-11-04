@@ -17,6 +17,7 @@ public class Shop {
     double latitude;
     double longitude;
     List<String> categories = new ArrayList<>();
+    String index;
 
     public Shop() {}
 
@@ -30,6 +31,14 @@ public class Shop {
         this.latitude = latitude;
         this.longitude = longitude;
         this.categories = categories;
+        this.index = "not_specified";
+    }
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
     public String getName() {

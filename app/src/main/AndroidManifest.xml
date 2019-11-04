@@ -28,13 +28,13 @@
         <activity android:name=".ui.BuyMainActivity" />
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.ihahire.ui.BuyMainActivity" />
+            android:value="com.example.ihahire.ui.MainActivity" />
 
         <activity android:name=".ui.choiceActivity" />
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.MainActivity"
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"
-                    android:theme="@style/NoActionBarTheme"/>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

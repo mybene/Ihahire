@@ -38,6 +38,8 @@ public class sellActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sell);
 
+
+
         ButterKnife.bind(this);
 
         sharedProduct = PreferenceManager.getDefaultSharedPreferences(this);

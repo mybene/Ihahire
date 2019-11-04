@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.example.ihahire.Constants;
 import com.example.ihahire.R;
 import com.example.ihahire.models.Business;
-import com.example.ihahire.models.Category;
+import com.example.ihahire.models.Shop;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -25,9 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,7 +48,7 @@ public class BuyDetailFragment extends Fragment implements View.OnClickListener 
         // Required empty public constructor
     }
 
-    public  static  BuyDetailFragment newInstance(Business shop){
+    public  static  BuyDetailFragment newInstance(Shop shop){
         BuyDetailFragment buyDetailFragment= new BuyDetailFragment();
         Bundle args= new Bundle();
         args.putParcelable("mBuy", Parcels.wrap(shop));
@@ -76,12 +73,6 @@ public class BuyDetailFragment extends Fragment implements View.OnClickListener 
         ButterKnife.bind(this,view);
 
         Picasso.get().load(mBuy.getImageUrl()).into(marketImage);
-
-        List<String> categories= new ArrayList<>();
-
-        for(Category category:mBuy.getCategories()){
-            categories.add(category.getTitle());
-        }
 
 
         shop.setText(mBuy.getName());

@@ -7,12 +7,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.ihahire.R;
 import com.example.ihahire.adapters.BuyPagerAdapter;
-import com.example.ihahire.models.Business;
+import com.example.ihahire.models.Shop;
 
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,7 +20,7 @@ public class BuyDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.vpPager) ViewPager mViewPager;
     private BuyPagerAdapter adapterViewPager;
-    List<Business>products=new ArrayList<>();
+    ArrayList<Shop>products=new ArrayList<>();
 
     private int FragmentPagerAdapter;
 

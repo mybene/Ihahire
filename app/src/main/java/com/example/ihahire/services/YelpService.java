@@ -38,7 +38,7 @@ public class YelpService {
     }
 
     public List<Shop> processResults(Response response){
-        List<Shop> products = new ArrayList<>();
+        List<Shop> shops = new ArrayList<>();
         try{
             String jsonData = response.body().toString();
             JSONObject yelpJSON = new JSONObject(jsonData);
@@ -65,13 +65,13 @@ public class YelpService {
                     }
                     Shop shop = new Shop(name, phone, website, rating,
                             imageUrl, address, latitude, longitude, categories);
-                    products.add(shop);
+                    shops.add(shop);
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return products;
+        return shops;
     }
 
 
