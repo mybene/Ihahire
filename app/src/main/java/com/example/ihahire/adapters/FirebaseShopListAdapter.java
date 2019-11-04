@@ -3,6 +3,7 @@ package com.example.ihahire.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.example.ihahire.Constants;
 import com.example.ihahire.R;
 import com.example.ihahire.models.Shop;
 import com.example.ihahire.ui.BuyDetailActivity;
@@ -38,13 +40,14 @@ public class FirebaseShopListAdapter extends FirebaseRecyclerAdapter<Shop, Fireb
         private FirebaseShopViewHolder viewHolder;
         private Shop model;
         private int position;
+        private int mOrientation;
 
         public FirebaseShopListAdapter(FirebaseRecyclerOptions<Shop> options,
-                               DatabaseReference cakeRef,
+                               DatabaseReference cref,
                                SavedShopListActivity onStartDragListener,
                                Context context){
         super(options);
-        cakeRef = cakeRef.getRef();
+        cakeRef = cref.getRef();
         shopOnStartDragListener = onStartDragListener;
         mContext = context;
 
@@ -79,8 +82,44 @@ public class FirebaseShopListAdapter extends FirebaseRecyclerAdapter<Shop, Fireb
         }
 
         @Override
-        protected void onBindViewHolder(@NonNull FirebaseShopViewHolder firebaseShopViewHolder, int position, @NonNull Shop product) {
-        firebaseShopViewHolder.bindShop(product);
+        protected void onBindViewHolder(@NonNull final FirebaseShopViewHolder firebaseShopViewHolder, int position, @NonNull Shop product) {
+                firebaseShopViewHolder.bindShop(product);
+//                if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+//                        createDetailFragemnet(0);
+//
+//                }
+                firebaseShopViewHolder.shopPicture.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+
+                                if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+                                        shopOnStartDragListener.onStartDrag(firebaseShopViewHolder);
+                                }
+                                return false;
+                        }
+                });
+
+                firebaseShopViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                int itemPosition = firebaseShopViewHolder.getAdapterPosition();
+                                if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+                                        createDetailFragment(itemPosition);
+                                } else {
+                                        Intent intent = new Intent(mContext, BuyDetailActivity.class);
+                                        intent.putExtra(Constants.EXTRA_KEY_POSITION, itemPosition);
+                                        intent.putExtra(Constants.EXTRA_KEY_PRODUCTS, Parcels.wrap(products));
+                                        intent.putExtra(Constants.KEY_SOURCE, Constants.SOURCE_SAVED);
+                                        mContext.startActivity(intent);
+                                }
+                        }
+
+
+                });
+        }
+
+        private void createDetailFragment(int itemPosition) {
+
         }
 
         @NonNull

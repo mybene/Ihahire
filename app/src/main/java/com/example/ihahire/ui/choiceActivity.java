@@ -48,6 +48,7 @@ public class choiceActivity extends AppCompatActivity {
 
            @Override
            public void onClick(View v) {
+
                Intent intent = new Intent(choiceActivity.this, BuyMainActivity.class);
                startActivity(intent);
 
